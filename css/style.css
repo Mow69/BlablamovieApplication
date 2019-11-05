@@ -2,10 +2,7 @@
 /*    background-image: url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg");*/
 /*    background-size: 100%;*/
 /*}*/
-html {
-    width: 100%;
-    height: 100%;
-}
+
 
 /*#page-1, #page-2, #page-3, #page-4, #page-5, #page-6 {*/
 /*    background-image: url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg");*/
@@ -21,11 +18,60 @@ html {
 
 /*}*/
 
-
+html {
+    width: 100%;
+}
 
 body {
-    background-size: cover;
-    background: url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg") no-repeat center;
+    background-size: auto 50%;
+
+    background: url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg") no-repeat top right;
+}
+
+.page{
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(transparent, black 50%);
+}
+
+/*.transition {*/
+/*    background: linear-gradient(#e66465, #1b1b1d);*/
+/*}*/
+
+h2 {
+    margin: 0;
+}
+
+
+#movies-area{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 80%;
+}
+
+
+.movie_item{
+    width: 30%;
+}
+
+.poster {
+    display: block;
+    width: 100%;
+}
+
+p {
+    color: aliceblue;
+}
+
+.navbar {
 
 }
+
+footer {
+    background: black;
+}
+
+
+
 

@@ -27,15 +27,28 @@ function init() {
     callApi('GET', 'http://localhost:8000/movies', function(response){
         console.log(response);
 
-        let currentDiv = document.getElementById('page-1');
+        let movieArea = document.getElementById('movies-area');
         response['Search'].forEach(function (item){
-            let newDiv = document.createElement("div");
-            let newContent = document.createTextNode(item['Title']);
-            newDiv.appendChild(newContent);
-            let img = new Image();
-            img.src = item['Poster'];
-            newDiv.appendChild(img);
-            currentDiv.append(newDiv);
+            let movieItem = document.createElement("div");
+            movieItem.classList.add('movie_item');
+            movieArea.append(movieItem);
+
+            let poster = new Image();
+            poster.src = item['Poster'];
+            poster.classList.add('poster');
+            movieItem.appendChild(poster);
+
+            // let newContent = document.createTextNode(item['Title']);
+            let movieTitle = document.createElement('p');
+            movieTitle.innerHTML = item['Title'];
+            movieItem.appendChild(movieTitle);
+
+            // TODO : préciser le lien pour les titres des films
+            let movieInfos = document.createElement('a');
+            movieInfos.setAttribute('href', '');
+            movieInfos.classList.add('btn');
+            movieItem.appendChild(movieInfos);
+
         });
     });
 }

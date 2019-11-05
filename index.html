@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>BlablaMovie</title>
 </head>
@@ -16,69 +16,88 @@
 <!--        <li><a href="#about">About</a></li>-->
 <!--    </ul>-->
 
+
+
+
 <!-- TODO: REFACTORISER CETTE PARTIE-->
 
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand"><img src="images/assets_SuperMovie_Homepage_simple_mobile_2019-10-18-2/group-19_2.svg"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">À propos<span class="sr-only"></span></a>
+                    <a class="nav-item nav-link active" href="#">Films</a>
+                    <a class="nav-item nav-link active" href="#">Historique</a>
+                    <a class="nav-item nav-link active" href="#">Contact</a>
+                </div>
+            </div>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
+            </form>
+        </nav>
+    </header>
 
-<div id="app">
-        <div id="page-1">
+    <div id="page-1" class="page">
+        <header>
             <h2>Landing page</h2>
             <p>This is the landing page</p>
-            <button onclick="showPage2()">Page-2</button>
-            <button onclick="showPage3()">Page-3</button>
-            <button onclick="showPage4()">Page-4</button>
-            <button onclick="showPage5()">Page-5</button>
-            <button onclick="showPage6()">Page-6</button>
-        </div>
-        <div id="page-2">
-            <h2>Movies page</h2>
-            <p>This is the movies page</p>
-            <button onclick="showPage1()">Page-1</button>
-            <button onclick="showPage3()">Page-3</button>
-            <button onclick="showPage4()">Page-4</button>
-            <button onclick="showPage5()">Page-5</button>
-            <button onclick="showPage6()">Page-6</button>
-        </div>
-        <div id="page-3">
-            <h2>Votes page</h2>
-            <p>This is the votes page</p>
-            <button onclick="showPage(1)">Page-1</button>
-            <button onclick="showPage2()">Page-2</button>
-            <button onclick="showPage4()">Page-4</button>
-            <button onclick="showPage5()">Page-5</button>
-            <button onclick="showPage6()">Page-6</button>
-        </div>
-        <div id="page-4">
-            <h2>Profil page</h2>
-            <p>This is the profil page</p>
-            <button onclick="showPage1()">Page-1</button>
-            <button onclick="showPage2()">Page-2</button>
-            <button onclick="showPage3()">Page-3</button>
-            <button onclick="showPage5()">Page-5</button>
-            <button onclick="showPage6()">Page-6</button>
-        </div>
-        <div id="page-5">
-            <h2>Settings page</h2>
-            <p>This is the settings page</p>
-            <button onclick="showPage1()">Page-1</button>
-            <button onclick="showPage2()">Page-2</button>
-            <button onclick="showPage3()">Page-3</button>
-            <button onclick="showPage4()">Page-4</button>
-            <button onclick="showPage6()">Page-6</button>
-        </div>
-        <div id="page-6">
-            <h2>About us</h2>
-            <p>This is the about us page</p>
-            <button onclick="showPage1()">Page-1</button>
-            <button onclick="showPage2()">Page-2</button>
-            <button onclick="showPage3()">Page-3</button>
-            <button onclick="showPage4()">Page-4</button>
-            <button onclick="showPage5()">Page-5</button>
+        </header>
+
+        <div id="movies-area">
+
         </div>
     </div>
 
+    <div id="page-2">
+        <h2>Movies page</h2>
+        <p>This is the movies page</p>
 
+    </div>
 
+    <div id="page-3">
+        <h2>Votes page</h2>
+        <p>This is the votes page</p>
 
+    </div>
+
+    <div id="page-4">
+        <h2>Profil page</h2>
+        <p>This is the profil page</p>
+
+    </div>
+
+    <div id="page-5">
+        <h2>Settings page</h2>
+        <p>This is the settings page</p>
+
+    </div>
+    <div id="page-6">
+        <h2>About us</h2>
+        <p>This is the about us page</p>
+
+    </div>
+
+    <footer>
+
+        <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Page
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item" onclick="showPage1()">Page-1</a>
+                <a class="dropdown-item" onclick="showPage2()">Page-2</a>
+                <a class="dropdown-item" onclick="showPage3()">Page-3</a>
+                <a class="dropdown-item" onclick="showPage4()">Page-4</a>
+                <a class="dropdown-item" onclick="showPage5()">Page-5</a>
+                <a class="dropdown-item" onclick="showPage6()">Page-6</a>
+            </div>
+        </div>
+    </footer>
 <!--    <div id="root">-->
 <!--        <div id="menu">-->
 <!--            <button onclick="goTo(0)">Page 1</button>-->
@@ -95,9 +114,14 @@
 <!--    </div>-->
 
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </body>
 <!--    <script src="js/main.js"></script>-->
 <!--    <script src="js/route.js"></script>-->
 <!--    <script src="js/router.js"></script>-->
     <script src="js/app.js"></script>
+
 </html>

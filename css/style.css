@@ -18,38 +18,84 @@
 
 /*}*/
 
+* {
+    position: relative;
+}
+
 html {
     width: 100%;
+    height: 100%;
+
 }
 
-body {
+body.container-fluid {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
     background-size: auto 50%;
-
-    background: url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg") no-repeat top right;
+    background: linear-gradient(transparent, black 30%) 30% 100%, url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg") no-repeat 0% 50%;
+    background-position: bottom;
+    background-position: top;
+    background-size: 100%;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
+    height: 100%;
+    color: #ffffff;
 }
-
-.page{
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(transparent, black 50%);
-}
-
-/*.transition {*/
-/*    background: linear-gradient(#e66465, #1b1b1d);*/
-/*}*/
 
 h2 {
     margin: 0;
 }
 
+/*PAGE*/
+header, .page, footer {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+    /*HEADER**************************/
 
+        /*NAVBAR*/
+.navbar .navbar-nav .nav-link {
+    color: #ffffff;
+}
+    /*CONTENT*/
+.page{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 5em;
+}
+
+/*Page 1*/
+#bandeau-presentation p {
+     margin-left: 15px;
+}
+/*YELLOW LINE*/
+.yellow-line {
+    display: block;
+    width: 3px;
+    height: 80%;
+    background: #f7b436;
+    position: absolute;
+    top: 0;
+}
+
+.hook-line {
+    display: flex;
+}
+
+/*page 2*/
 #movies-area{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     height: 80%;
 }
-
 
 .movie_item{
     width: 30%;
@@ -60,18 +106,109 @@ h2 {
     width: 100%;
 }
 
-p {
-    color: aliceblue;
-}
 
-.navbar {
-
-}
-
+/*FOOTER*/
 footer {
     background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10em;
+}
+
+
+footer .navbar .navbar-nav .nav-link {
+    color: rgba(193, 193, 193, 0.57)
 }
 
 
 
+/*CONNEXION INSCRIPTION BUTTONS*/
+.button {
+    width: 75px;
+    height: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
 
+.button-connexion {
+    color: #f7b436;
+    width: 120px;
+    height: 36px;
+    border-radius: 20px;
+    border: solid 2px #f7b436 ;
+    background-image: linear-gradient(to top, #1b1b1d 63%, rgba(0, 0, 0, 100))
+}
+.button-inscription {
+    color: #ffffff;
+    width: 130px;
+    height: 36px;
+    border-radius: 20px;
+    background-color: #f7b436;
+    border: transparent;
+}
+
+/*TODO: Ajuster en largeur  la ligne de border top de la footbar*/
+/*FOOTBAR*/
+#footlink {
+    border-top: rgba(193, 193, 193, 0.57) solid;
+    border-top-width: thin;
+    margin-top: 4em;
+    margin-bottom: 2em;
+    width: 100%;
+}
+
+/*LOGO*/
+.logo {
+    width: 163px;
+    height: 65px;
+    object-fit: contain;
+}
+
+
+/*TODO: Rendre transparent le hover quand on clique sur la loupe de recherche .searche-logo*/
+/*TODO: Effacer le RECHERCHER dans la search bar*/
+/*SEARCH BUTTON*/
+.search-logo {
+    width: 14px;
+    height: auto;
+    filter: invert(100%);
+}
+
+.search-logo:hover {
+    background-color: transparent;
+}
+
+.btn-outline-success {
+    border: none;
+}
+
+.btn-outline-success:hover {
+    background: none;
+}
+
+.form-inline {
+    margin-right: 0;
+    background-color: transparent;
+}
+
+.form-control {
+    background-color: transparent;
+    border: transparent;
+}
+
+.form-control:hover {
+    background-color: transparent;
+
+}
+
+
+/*FLATICON*/
+#flaticon {
+    font-size: 9px;
+    text-align: right;
+}

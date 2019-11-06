@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>BlablaMovie</title>
 </head>
-<body>
+<body class="container-fluid">
 <!--    <ul>-->
 <!--        <li><a href="#home">Home</a></li>-->
 <!--        <li><a href="#movies">Movies</a></li>-->
@@ -21,69 +22,84 @@
 
 <!-- TODO: REFACTORISER CETTE PARTIE-->
 
+<!--HEADER-->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand"><img src="images/assets_SuperMovie_Homepage_simple_mobile_2019-10-18-2/group-19_2.svg"></a>
+            <div class="logo">
+                <a class="navbar-brand"><img src="images/assets_SuperMovie_Homepage_simple_mobile_2019-10-18-2/group-19_2.svg" alt="blablamovie logo"></a>
+            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            </div>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">À propos<span class="sr-only"></span></a>
-                    <a class="nav-item nav-link active" href="#">Films</a>
-                    <a class="nav-item nav-link active" href="#">Historique</a>
-                    <a class="nav-item nav-link active" href="#">Contact</a>
+                    <a class="nav-item nav-link" href="#">À propos<span class="sr-only"></span></a>
+                    <a class="nav-item nav-link" href="#">Films</a>
+                    <a class="nav-item nav-link" href="#">Historique</a>
+                    <a class="nav-item nav-link" href="#">Contact</a>
                 </div>
             </div>
             <form class="form-inline">
                 <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img class="search-logo" src="images/transparency.png"></button>
             </form>
         </nav>
     </header>
 
-    <div id="page-1" class="page">
+<!--PAGE-->
+<!--PAGE 1-->
+    <section id="page-1" class="page">
+        <section id="bandeau-central">
+            <div id="bandeau-presentation">
+                <div class="hook-line">
+                    <span class="yellow-line"></span>
+                    <div class="hook-p">
+                        <p>Votez pour votre film préféré,</p>
+                        <p>et découvrez le classement</p>
+                    </div>
+                </div>
+                <p>au fil des jours !</p>
+                <p>Déjà xxx xxx membres</p>
+            </div>
+            <div id="button">
+                <button class="button-connexion">CONNEXION</button>
+                <button class="button-inscription">INSCRIPTION</button>
+            </div>
+        </section>
+        </section>
+<!--PAGE 2-->
+    <section id="page-2" class="page">
         <header>
-            <h2>Landing page</h2>
-            <p>This is the landing page</p>
+            <h2>Movies page</h2>
+            <p>This is the movies page</p>
         </header>
-
         <div id="movies-area">
-
         </div>
-    </div>
-
-    <div id="page-2">
-        <h2>Movies page</h2>
-        <p>This is the movies page</p>
-
-    </div>
-
-    <div id="page-3">
+    </section>
+<!--PAGE 3-->
+    <section id="page-3" class="page">
         <h2>Votes page</h2>
         <p>This is the votes page</p>
-
-    </div>
-
-    <div id="page-4">
+    </section>
+<!--PAGE 4-->
+    <section id="page-4" class="page">
         <h2>Profil page</h2>
         <p>This is the profil page</p>
-
-    </div>
-
-    <div id="page-5">
+    </section>
+<!--PAGE 5-->
+    <section id="page-5" class="page">
         <h2>Settings page</h2>
         <p>This is the settings page</p>
-
-    </div>
-    <div id="page-6">
+    </section>
+<!--PAGE 6-->
+    <section id="page-6" class="page">
         <h2>About us</h2>
         <p>This is the about us page</p>
-
-    </div>
-
+    </section>
+<!--TODO: Ajouter les boutons réseaux sociaux Twitter, FB...-->
+<!--FOOTER-->
     <footer>
-
         <div class="btn-group" role="group">
             <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Page
@@ -97,6 +113,23 @@
                 <a class="dropdown-item" onclick="showPage6()">Page-6</a>
             </div>
         </div>
+        <section class="navbar navbar-expand-lg navbar-light" id="footlink">
+            <div class="logo">
+                <a class="navbar-brand"><img src="images/assets_SuperMovie_Homepage_simple_mobile_2019-10-18-2/group-19_2.svg" alt="blablamovie logo"></a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="#">À propos<span class="sr-only"></span></a>
+                    <a class="nav-item nav-link" href="#">Films</a>
+                    <a class="nav-item nav-link" href="#">Historique</a>
+                    <a class="nav-item nav-link" href="#">Contact</a>
+                </div>
+            </div>
+        </section>
+        <div id="flaticon">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </footer>
 <!--    <div id="root">-->
 <!--        <div id="menu">-->

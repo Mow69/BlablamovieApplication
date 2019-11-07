@@ -26,23 +26,22 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="logo">
-                <a class="navbar-brand"><img src="images/assets_SuperMovie_Homepage_simple_mobile_2019-10-18-2/group-19_2.svg" alt="blablamovie logo"></a>
+                <a class="navbar-brand" href="/"><img src="images/assets_SuperMovie_Homepage_simple_mobile_2019-10-18-2/group-19_2.svg" alt="blablamovie logo"></a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            </div>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="#">À propos<span class="sr-only"></span></a>
-                    <a class="nav-item nav-link" href="#">Films</a>
-                    <a class="nav-item nav-link" href="#">Historique</a>
-                    <a class="nav-item nav-link" href="#">Contact</a>
+                    <a class="nav-item nav-link" href="#" onclick="showPage6()">À propos<span class="sr-only"></span></a>
+                    <a class="nav-item nav-link" href="#" onclick="showPage2()">Films</a>
+                    <a class="nav-item nav-link" href="#" onclick="showPage3()">Historique</a>
+                    <a class="nav-item nav-link" href="#" onclick="showPage5()">Contact</a>
                 </div>
             </div>
             <form class="form-inline">
                 <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img class="search-logo" src="images/transparency.png"></button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img class="search-logo" src="images/transparency.png" alt="logo"></button>
             </form>
         </nav>
     </header>
@@ -63,19 +62,29 @@
                 <p>Déjà xxx xxx membres</p>
             </div>
             <div id="button">
-                <button class="button-connexion">CONNEXION</button>
+                <button class="button-connexion" onclick="showPage4()">CONNEXION</button>
                 <button class="button-inscription">INSCRIPTION</button>
             </div>
         </section>
         </section>
 <!--PAGE 2-->
     <section id="page-2" class="page">
-        <header>
-            <h2>Movies page</h2>
-            <p>This is the movies page</p>
-        </header>
         <div id="movies-area">
         </div>
+        <footer>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" id="pagelinkprev" href="#"><</a></li>
+                    <li class="page-item"><a class="page-link" href="#" onclick="showPage1()">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#" onclick="showPage2()">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#" onclick="showPage3()">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#" onclick="showPage4()">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#" onclick="showPage5()">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#" onclick="showPage6()">6</a></li>
+                    <li class="page-item"><a class="page-link" id="pagelinknext" href="#">></a></li>
+                </ul>
+            </nav>
+        </footer>
     </section>
 <!--PAGE 3-->
     <section id="page-3" class="page">
@@ -86,6 +95,7 @@
     <section id="page-4" class="page">
         <h2>Profil page</h2>
         <p>This is the profil page</p>
+<!--        TODO: REMPLIR LA PAGE D CONNEXION AVEC LE LIEN ET LA SPA DE CONNEXION LIEE A SA ROUTE DANS APP.js-->
     </section>
 <!--PAGE 5-->
     <section id="page-5" class="page">
@@ -100,22 +110,12 @@
 <!--TODO: Ajouter les boutons réseaux sociaux Twitter, FB...-->
 <!--FOOTER-->
     <footer>
-        <div class="btn-group" role="group">
-            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Page
-            </button>
-            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item" onclick="showPage1()">Page-1</a>
-                <a class="dropdown-item" onclick="showPage2()">Page-2</a>
-                <a class="dropdown-item" onclick="showPage3()">Page-3</a>
-                <a class="dropdown-item" onclick="showPage4()">Page-4</a>
-                <a class="dropdown-item" onclick="showPage5()">Page-5</a>
-                <a class="dropdown-item" onclick="showPage6()">Page-6</a>
-            </div>
-        </div>
+
+
+
         <section class="navbar navbar-expand-lg navbar-light" id="footlink">
             <div class="logo">
-                <a class="navbar-brand"><img src="images/assets_SuperMovie_Homepage_simple_mobile_2019-10-18-2/group-19_2.svg" alt="blablamovie logo"></a>
+                <a class="navbar-brand" href="/"><img src="images/assets_SuperMovie_Homepage_simple_mobile_2019-10-18-2/group-19_2.svg" alt="blablamovie logo"></a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -127,6 +127,12 @@
                     <a class="nav-item nav-link" href="#">Historique</a>
                     <a class="nav-item nav-link" href="#">Contact</a>
                 </div>
+            </div>
+            <div class="logos-medias">
+                <a class="logo-medias"><img src="images/assets_SuperMovie_Homepage_simple_2019-10-18-3/ic-facebook.svg" alt="logo_facebook"></a>
+                <a class="logo-medias"><img src="images/assets_SuperMovie_Homepage_simple_2019-10-18-3/ic-pinterest.svg" alt="logo_pinterest"></a>
+                <a class="logo-medias"><img src="images/assets_SuperMovie_Homepage_simple_2019-10-18-3/ic-twitter.svg" alt="logo_twitter"></a>
+                <a class="logo-medias"><img src="images/assets_SuperMovie_Homepage_simple_2019-10-18-3/ic-linkedin.svg" alt="logo_linkedin"></a>
             </div>
         </section>
         <div id="flaticon">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

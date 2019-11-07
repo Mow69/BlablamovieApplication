@@ -24,6 +24,23 @@ window.onload = init;
 
 function init() {
     showPage1();
+///////////HOME PAGE / ACCUEIL
+    try {
+        callApi('GET', 'http://localhost:8000/', function(response){
+            console.log('ma reponse accueil', response);
+        });
+    } catch (e) {
+        throw ('La requête n\'a pas pu aboutir' + (e))
+    }
+
+    // let movieArea = document.getElementById('home-area');
+    // response[''].forEach(function (item) {
+    //     let homeArea = document.createElement("div");
+    //     homeItem.classList.add('navbar-brand');
+    //     homeArea.append(homeItem);
+    // });
+
+//////////MOVIE PAGE / Films
     callApi('GET', 'http://localhost:8000/movies', function(response){
         console.log(response);
 
@@ -51,24 +68,92 @@ function init() {
 
         });
     });
+
+    ////////LOGIN PAGE
+    try {
+        callApi('POST', 'http://localhost:8000/login', function (response) {
+            console.log(response);
+        });
+    } catch (e) {
+        throw ('La requête n\'a pas pu aboutir' + (e))
+    }
+    //////////LOGGOUT PAGE
+    try {
+        callApi('GET', 'http://localhost:8000/logout', function (response) {
+            console.log(response);
+        });
+    } catch (e) {
+        throw ('La requête n\'a pas pu aboutir' + (e))
+    }
+
+        //////////DELETE VOTE PAGE
+    try {
+        callApi('DELETE', 'http://localhost:8000/movies/vote-delete', function (response) {
+            console.log(response);
+
+            let movieArea = document.getElementById('movies-area');
+            response['Search'].forEach(function (item){
+                let movieItem = document.createElement("div");
+                movieItem.classList.add('movie_item');
+                movieArea.append(movieItem);
+
+                let poster = new Image();
+                poster.src = item['Poster'];
+                poster.classList.add('poster');
+                movieItem.appendChild(poster);
+
+                // let newContent = document.createTextNode(item['Title']);
+                let movieTitle = document.createElement('p');
+                movieTitle.innerHTML = item['Title'];
+                movieItem.appendChild(movieTitle);
+
+                // TODO : préciser le lien pour les titres des films
+                let movieInfos = document.createElement('a');
+                movieInfos.setAttribute('href', '');
+                movieInfos.classList.add('btn');
+                movieItem.appendChild(movieInfos);
+
+            });
+
+        });
+    } catch (e) {
+        throw ('La requête n\'a pas pu aboutir' + (e))
+    }
+
+    //////////VOTED MOVIES PAGE / Historique (des votes)
+    try {
+        callApi('POST', 'http://localhost:8000/movies/vote', function (response) {
+            console.log('ma reponse accueil', response);
+        });
+    } catch (e) {
+        throw ('La requête n\'a pas pu aboutir' + (e))
+    }
+
 }
 
-function callApi(type, url, callback) {
-    let http = new XMLHttpRequest();
-    http.open(type, url, true);
+// Methode pour appeler BlablamovieAPi
 
-    http.setRequestHeader('Content-type', 'application/json');
+try {
+    function callApi(type, url, callback) {
+        let http = new XMLHttpRequest();
+        http.open(type, url, true);
 
-    http.onreadystatechange = function() {//Call a function when the state changes.
-        //if(http.readyState === 4 && http.status === 200) {
+        http.setRequestHeader('Content-type', 'application/json');
+
+        http.onreadystatechange = function() {//Call a function when the state changes.
+            //if(http.readyState === 4 && http.status === 200) {
             //console.log(http.responseText);
             if(http.readyState === 4){
                 callback(JSON.parse(http.response));
             }
-        //}
-    };
-    http.send();
+            //}
+        };
+        http.send();
+    }
+} catch (e) {
+    throw (e)
 }
+
 
 
 

@@ -1,20 +1,3 @@
-// 'use strict';
-//
-// (function () {
-//     function init() {
-//         var router = new Router([
-//             new Route('home', 'home.html', true),
-//             new Route('movies', 'movies.html', true),
-//             new Route('votes', 'votes.html', true),
-//             new Route('profil', 'profil.html', true),
-//             new Route('settings', 'settings.html', true),
-//             new Route('about', 'about.html', true),
-//
-//
-//         ])
-//     }
-//     init();
-// }());
 
 /////////////////// https://codingislove.com/implementing-single-page-architecture-with-vanilla-javascript/
 
@@ -23,274 +6,97 @@
 window.onload = init;
 
 function init() {
-    showPage1();
-///////////HOME PAGE / ACCUEIL
-    try {
-        callApi('GET', 'http://localhost:8000/', function(response){
-            console.log('ma reponse accueil', response);
-        });
-    } catch (e) {
-        throw ('La requête n\'a pas pu aboutir' + (e))
-    }
 
-    // let movieArea = document.getElementById('home-area');
-    // response[''].forEach(function (item) {
-    //     let homeArea = document.createElement("div");
-    //     homeItem.classList.add('navbar-brand');
-    //     homeArea.append(homeItem);
-    // });
-
-//////////MOVIE PAGE / Films
-    callApi('GET', 'http://localhost:8000/movies', function(response){
-        console.log(response);
-
-        let movieArea = document.getElementById('movies-area');
-        response['Search'].forEach(function (item){
-            let movieItem = document.createElement("div");
-            movieItem.classList.add('movie_item');
-            movieArea.append(movieItem);
-
-            let poster = new Image();
-            poster.src = item['Poster'];
-            poster.classList.add('poster');
-            movieItem.appendChild(poster);
-
-            // let newContent = document.createTextNode(item['Title']);
-            let movieTitle = document.createElement('p');
-            movieTitle.innerHTML = item['Title'];
-            movieItem.appendChild(movieTitle);
-
-            // TODO : préciser le lien pour les titres des films
-            let movieInfos = document.createElement('a');
-            movieInfos.setAttribute('href', '');
-            movieInfos.classList.add('btn');
-            movieItem.appendChild(movieInfos);
-
-        });
-    });
-
-    ////////LOGIN PAGE
-    try {
-        callApi('POST', 'http://localhost:8000/login', function (response) {
-            console.log(response);
-        });
-    } catch (e) {
-        throw ('La requête n\'a pas pu aboutir' + (e))
-    }
-    //////////LOGGOUT PAGE
-    try {
-        callApi('GET', 'http://localhost:8000/logout', function (response) {
-            console.log(response);
-        });
-    } catch (e) {
-        throw ('La requête n\'a pas pu aboutir' + (e))
-    }
-
-        //////////DELETE VOTE PAGE
-    try {
-        callApi('DELETE', 'http://localhost:8000/movies/vote-delete', function (response) {
-            console.log(response);
-
-            let movieArea = document.getElementById('movies-area');
-            response['Search'].forEach(function (item){
-                let movieItem = document.createElement("div");
-                movieItem.classList.add('movie_item');
-                movieArea.append(movieItem);
-
-                let poster = new Image();
-                poster.src = item['Poster'];
-                poster.classList.add('poster');
-                movieItem.appendChild(poster);
-
-                // let newContent = document.createTextNode(item['Title']);
-                let movieTitle = document.createElement('p');
-                movieTitle.innerHTML = item['Title'];
-                movieItem.appendChild(movieTitle);
-
-                // TODO : préciser le lien pour les titres des films
-                let movieInfos = document.createElement('a');
-                movieInfos.setAttribute('href', '');
-                movieInfos.classList.add('btn');
-                movieItem.appendChild(movieInfos);
-
-            });
-
-        });
-    } catch (e) {
-        throw ('La requête n\'a pas pu aboutir' + (e))
-    }
-
-    //////////VOTED MOVIES PAGE / Historique (des votes)
-    try {
-        callApi('POST', 'http://localhost:8000/movies/vote', function (response) {
-            console.log('ma reponse accueil', response);
-        });
-    } catch (e) {
-        throw ('La requête n\'a pas pu aboutir' + (e))
-    }
-
+    userConnect();
+    listFilm();
 }
 
 // Methode pour appeler BlablamovieAPi
+/**
+ *
+ * @param type
+ * @param url
+ * @param callback
+ * @param data
+ */
+function callApi(type, url, callback, data) {
+    let http = new XMLHttpRequest();
+    http.open(type, url, true);
 
-try {
-    function callApi(type, url, callback) {
-        let http = new XMLHttpRequest();
-        http.open(type, url, true);
+    http.setRequestHeader('Content-type', 'application/json');
 
-        http.setRequestHeader('Content-type', 'application/json');
-
-        http.onreadystatechange = function() {//Call a function when the state changes.
-            //if(http.readyState === 4 && http.status === 200) {
-            //console.log(http.responseText);
-            if(http.readyState === 4){
-                callback(JSON.parse(http.response));
+    http.onreadystatechange = function() {//Call a function when the state changes.
+        //if(http.readyState === 4 && http.status === 200) {
+        //console.log(http.responseText);
+        if(http.readyState === 4){
+            if(http.status === 200) {
+                callback(
+                        http.response
+                );
+            } else {
+                console.log('caca prout');
             }
-            //}
-        };
-        http.send();
-    }
-} catch (e) {
-    throw (e)
+        }
+        //}
+    };
+    http.send(data);
+}
+
+////////LOGIN PAGE
+
+function userConnect() {
+    let movieArea = document.getElementById('movies-area');
+    let connexionForm = document.getElementById('connexionForm');
+
+    connexionForm.addEventListener('submit', (event) => {
+        event.preventDefault()
+        console.log('coucou');
+
+        try {
+            callApi('POST', 'http://localhost:8000/login', function (response) {
+                console.log(response);
+                movieArea.innerHTML = response;
+            }, JSON.stringify({
+                mail: document.querySelector('#mail-connexion').value,
+                password: document.querySelector('#password-connexion').value
+            }));
+        } catch (e) {
+            throw (e);
+        }
+    });
 }
 
 
 
+////////ADD USER PAGE
 
+function userAdd() {
+    let movieArea = document.getElementById('movies-area');
+    let inscriptionForm = document.getElementById('inscriptionForm');
 
-// TODO: REFACTORISER CETTE PARTIE
-//  (penser qu'il est possible en JS d'écouter du html, afin de créer une méthode
-//  de refacto dynamique des pages et de la valeur du display)
+    inscriptionForm.addEventListener('submit', (event) => {
+        event.preventDefault()
+        console.log('coucou');
 
-
-
-// let pageArray = [0, 1, 2, 3, 4, 5];
-//
-// let titleArray = ['Landing page', 'Movies page', 'Votes page', 'Profil page', 'Settings page', 'About us']
-//
-// const Router = {
-//     page: pageArray,
-//     title: titleArray,
-//     styleDisplay : "",
-// };
-//
-// function goTo(page) {
-//     Router.page = page;
-//     switch (page) {
-//         case 0:
-//             Router.title = '#page-1';
-//             styleDisplay = "";
-//             console.log();
-//             break;
-//
-//         case 1:
-//             Router.title = '#page-2';
-//             styleDisplay = "";
-//             console.log();
-//
-//             break;
-//         case 2:
-//             Router.title = '#page-3';
-//             styleDisplay = "";
-//             console.log();
-//
-//
-//             break;
-//         case 3:
-//             Router.title = '#page-4';
-//             styleDisplay = "";
-//             console.log();
-//
-//             break;
-//         case 4:
-//             Router.title = '#page-5';
-//             styleDisplay = "";
-//             console.log();
-//
-//             break;
-//         case 5:
-//             Router.title = '#page-6';
-//             styleDisplay = "";
-//             console.log();
-//
-//             break;
-//         default:
-//             throw "Page not found"
-//     }
-// }
-//
-// function renderTitle() {
-//     document.querySelector('#title').innerHTML = Router.title
-// }
-//
-// function renderStyleDisplay() {
-//     document.querySelector('#styleDisplay').innerHTML = Router.styleDisplay
-// }
-
-
-
-
-// function showPage1(page, displayConf)
-
-
-function showPage1() {
-    document.querySelector("#page-1").style.display = "";
-    document.querySelector("#page-2").style.display = "none";
-    document.querySelector("#page-3").style.display = "none";
-    document.querySelector("#page-4").style.display = "none";
-    document.querySelector("#page-5").style.display = "none";
-    document.querySelector("#page-6").style.display = "none";
-
-    // let page = document.addEventListener("click", );
-    // let displayConf = ;
-
-    // document.getElementById({page}).style.display = {displayConf};
-    // let x = document.querySelector(`${page}`).style.display = '${displayConf}';
-
+        try {
+            callApi('POST', 'http://localhost:8000/users/add', function (response) {
+                console.log(response);
+                movieArea.innerHTML = response;
+            }, JSON.stringify({
+                login: document.querySelector('#login-inscription').value,
+                mail: document.querySelector('#mail-inscription').value,
+                password: document.querySelector('#password-inscription').value,
+                birth_date: document.querySelector('#birth_date-inscription').value
+            }));
+        } catch (e) {
+            throw (e);
+        }
+    });
 }
 
 
-function showPage2() {
-    document.querySelector("#page-1").style.display = "none";
-    document.querySelector("#page-2").style.display = "";
-    document.querySelector("#page-3").style.display = "none";
-    document.querySelector("#page-4").style.display = "none";
-    document.querySelector("#page-5").style.display = "none";
-    document.querySelector("#page-6").style.display = "none";
-}
-
-function showPage3() {
-    document.querySelector("#page-1").style.display = "none";
-    document.querySelector("#page-2").style.display = "none";
-    document.querySelector("#page-3").style.display = "";
-    document.querySelector("#page-4").style.display = "none";
-    document.querySelector("#page-5").style.display = "none";
-    document.querySelector("#page-6").style.display = "none";
-}
-
-function showPage4() {
-    document.querySelector("#page-1").style.display = "none";
-    document.querySelector("#page-2").style.display = "none";
-    document.querySelector("#page-3").style.display = "none";
-    document.querySelector("#page-4").style.display = "";
-    document.querySelector("#page-5").style.display = "none";
-    document.querySelector("#page-6").style.display = "none";
-}
-
-function showPage5() {
-    document.querySelector("#page-1").style.display = "none";
-    document.querySelector("#page-2").style.display = "none";
-    document.querySelector("#page-3").style.display = "none";
-    document.querySelector("#page-4").style.display = "none";
-    document.querySelector("#page-5").style.display = "";
-    document.querySelector("#page-6").style.display = "none";
-}
-
-function showPage6() {
-    document.querySelector("#page-1").style.display = "none";
-    document.querySelector("#page-2").style.display = "none";
-    document.querySelector("#page-3").style.display = "none";
-    document.querySelector("#page-4").style.display = "none";
-    document.querySelector("#page-5").style.display = "none";
-    document.querySelector("#page-6").style.display = "";
-}
+// TODO: Ajouter des indicateurs : pour signifié que le formulaire d'inscription et de connexion a été envoyé.
+//   TODO:  Des indicateurs de statut connecté pour le user
+// TODO: un bouton de déconnexion et la fonctionnalité de loggout
+// TODO: empécher un visiteur non connecté de voir les films, ni même de voir le lien dans la navbar et la footbar
+// TODO: ajouter dans le back (API) la fonctionnalité de faire une requête de full plot pour chaque film cliqué.

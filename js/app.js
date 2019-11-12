@@ -9,6 +9,9 @@ function init() {
 
     userConnect();
     listFilm();
+    showPage();
+    userAdd();
+
 }
 
 // Methode pour appeler BlablamovieAPi
@@ -51,7 +54,7 @@ function userConnect() {
     let connexionForm = document.getElementById('connexionForm');
 
     connexionForm.addEventListener('submit', (event) => {
-        event.preventDefault()
+        event.preventDefault();
         console.log('coucou');
 
         try {

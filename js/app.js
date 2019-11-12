@@ -30,11 +30,13 @@ function callApi(type, url, callback, data) {
         //console.log(http.responseText);
         if(http.readyState === 4){
             if(http.status === 200) {
-                callback(
-                        http.response
-                );
+
+                callback(http.response);
+
             } else {
+
                 console.log('caca prout');
+
             }
         }
         //}

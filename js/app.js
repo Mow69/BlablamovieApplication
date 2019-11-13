@@ -88,20 +88,22 @@ function userConnect() {
         event.preventDefault();
         console.log('coucou');
 
-        try {
-            callApi('POST', 'http://localhost:8000/login', function (response) {
-                console.log(response);
-                movieArea.innerHTML = response;
-            }, JSON.stringify({
-                mail: document.querySelector('#mail-connexion').value,
-                password: document.querySelector('#password-connexion').value
-            }));
+        if(verifFormConnexion(f)) {
+            try {
+                callApi('POST', 'http://localhost:8000/login', function (response) {
+                    console.log(response);
+                    movieArea.innerHTML = response;
+                }, JSON.stringify({
+                    mail: document.querySelector('#mail-connexion').value,
+                    password: document.querySelector('#password-connexion').value
+                }));
 
-            console.log('connexion ok')
-            showPage(1);
+                console.log('connexion ok')
+                showPage(1);
 
-        } catch (e) {
-            throw new Error(e + alert("Une erreur de saisie dans le formulaire a été détectée et celui-ci n'a pas pu être envoyé."));
+            } catch (e) {
+                throw new Error(e + alert("Une erreur de saisie dans le formulaire a été détectée et celui-ci n'a pas pu être envoyé."));
+            }
         }
     });
 }
@@ -117,24 +119,26 @@ function userAdd() {
     inscriptionForm.addEventListener('submit', (event) => {
         event.preventDefault()
         console.log('coucou');
+        if(verifFormInscription(f)) {
+            try {
+                callApi('POST', 'http://localhost:8000/users/add', function (response) {
+                    console.log(response);
+                    movieArea.innerHTML = response;
+                }, JSON.stringify({
+                    login: document.querySelector('#login-inscription').value,
+                    mail: document.querySelector('#mail-inscription').value,
+                    password: document.querySelector('#password-inscription').value,
+                    birth_date: document.querySelector('#birth_date-inscription').value
+                }));
+                console.log('inscription ok');
+                showPage(1);
 
-        try {
-            callApi('POST', 'http://localhost:8000/users/add', function (response) {
-                console.log(response);
-                movieArea.innerHTML = response;
-            }, JSON.stringify({
-                login: document.querySelector('#login-inscription').value,
-                mail: document.querySelector('#mail-inscription').value,
-                password: document.querySelector('#password-inscription').value,
-                birth_date: document.querySelector('#birth_date-inscription').value
-            }));
-            console.log('inscription ok')
-            showPage(1);
+                showPopupInscription(true)
 
-            showPopupInscription(true)
+            } catch (e) {
+                throw new Error(e + alert("Une erreur de saisie dans le formulaire a été détectée et celui-ci n'a pas pu être envoyé."));
+            }
 
-        } catch (e) {
-            throw new Error(e + alert("Une erreur de saisie dans le formulaire a été détectée et celui-ci n'a pas pu être envoyé."));
         }
 
 

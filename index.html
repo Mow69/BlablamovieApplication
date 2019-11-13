@@ -87,14 +87,22 @@
         <p>Connectez-vous pour voter dès maintenant pour vos films préférés !</p>
 <!--        TODO: REMPLIR LA PAGE D CONNEXION AVEC LE LIEN ET LA SPA DE CONNEXION LIEE A SA ROUTE DANS APP.js-->
         <div>
-            <form method="POST" class="form-example" id="connexionForm">
+            <form novalidate method="POST" class="form-example" id="connexionForm" onsubmit="return verifFormConnexion(this)">
                 <div class="form-example">
                     <label for="mail-connexion">Veuillez entrer votre email: </label>
-                    <input type="email" name="mail" id="mail-connexion" required>
+                    <input type="email" name="mail" onblur="verifEmail(this)" id="mail-connexion" required>
+                    <span class="error" aria-live="polite"></span>
+                    <small id="emailHelpInline-co" class="text-muted">
+                        L'adresse email doit être au format mail classique (exemple@exemple.com) et unique.
+                    </small>
                 </div>
                 <div class="form-example">
                     <label for="password-connexion">Veuillez entrer votre mot de passe: </label>
-                    <input type="password" name="password" id="password-connexion" required>
+                    <input type="password" onblur="verifPassword(this)" name="password" id="password-connexion" required>
+                    <span class="error" aria-live="polite"></span>
+                    <small id="passwordHelpInline-co" class="text-muted">
+                        Mot de passe : répond aux critères RGPD, soit au minimum 12 caractères, parmi les caractères spéciaux, les minuscules, les majuscules et les chiffres.
+                    </small>
                 </div>
                 <div class="form-example">
                     <input type="submit" value="Envoyer">
@@ -107,22 +115,38 @@
         <h2>Inscription</h2>
         <p>Rejoignez la communauté Blablamovie et votez pour vos films préférés !</p>
         <div>
-            <form id="inscriptionForm" action="http://localhost:8000/users/add" method="post" class="form-example">
+            <form novalidate id="inscriptionForm" action="http://localhost:8000/users/add" method="post" class="form-example" onsubmit="return verifFormInscription(this)">
                 <div class="form-example">
                     <label for="login-inscription">Veuillez entrer un login: </label>
-                    <input type="text" name="login" id="login-inscription" required>
+                    <input type="text" name="login" onblur="verifLogin(this)" id="login-inscription" required>
+                    <span class="error" aria-live="polite"></span>
+                    <small id="inscriptionHelpInline" class="text-muted">
+                        Pseudo : doit faire entre 3 et 18 caractères alphanumériques
+                    </small>
                 </div>
                 <div class="form-example">
                     <label for="mail-inscription">Veuillez entrer un email: </label>
-                    <input type="email" name="mail" id="mail-inscription" required>
+                    <input type="email" name="mail" onblur="verifEmail(this)" id="mail-inscription" required>
+                    <span class="error" aria-live="polite"></span>
+                    <small id="emailHelpInline" class="text-muted">
+                        L'adresse email doit être au format mail classique (exemple@exemple.com) et unique.
+                    </small>
                 </div>
                 <div class="form-example">
                     <label for="password-inscription">Veuillez entrer un mot de passe: </label>
-                    <input type="password" name="password" id="password-inscription" required>
+                    <input type="password" name="password" onblur="verifPassword(this)" id="password-inscription" required>
+                    <span class="error" aria-live="polite"></span>
+                    <small id="passwordHelpInline" class="text-muted">
+                        Le mot de passe doit répondre aux critères RGPD (<a href="https://www.cnil.fr/fr/authentification-par-mot-de-passe-les-mesures-de-securite-elementaires">les mesures de sécurité élémentaires RGPD selon le site la CNIL</a>), soit au minimum 12 caractères, parmi les caractères spéciaux, les minuscules, les majuscules et les chiffres.
+                    </small>
                 </div>
                 <div class="form-example">
                     <label for="birth_date-inscription">Veuillez entrer une date de naissance: </label>
                     <input type="date" name="birth_date" id="birth_date-inscription" required>
+                    <span class="error" aria-live="polite"></span>
+                    <small id="birth-dateHelpInline" class="text-muted">
+                        La date de naissance doit être postérieure à 2004 : il faut avoir plus de 15 ans pour s'inscrire.
+                    </small>
                 </div>
                 <div class="form-example">
                     <input type="submit" value="Envoyer">
@@ -157,7 +181,6 @@
                 <div class="form-example">
                     <label for="contact-comment">Veuillez écrire un commentaire : </label>
                     <input type="text" name="contact" id="contact-comment" required>
-
                 </div>
                 <div class="form-example">
                     <input type="submit" value="Envoyer">
@@ -222,6 +245,7 @@
     <script src="js/film.js"></script>
     <script src="js/app.js"></script>
     <script src="js/pagination.js"></script>
+    <script src="js/msg-erreur.js"></script>
 
 
 

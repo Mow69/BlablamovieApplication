@@ -124,7 +124,7 @@ header, .page, footer {
     padding-top: 5em;
 }
 
-#home {
+#page-1 {
     display: flex;
 }
 
@@ -390,16 +390,31 @@ a.page-link:hover {
 
 }
 
-
-
-
-
-
-
-
 /*FLATICON*/
 #flaticon {
     font-size: 9px;
     text-align: right;
 }
 
+#popup-inscription {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: black;
+}
+
+#popup-inscription.popup-active {
+    display: flex;
+}
+
+#popup-inscription > div {
+    background-color: white;
+    padding: 25px;
+    border-radius: 7px;
+}

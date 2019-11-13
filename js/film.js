@@ -2,7 +2,7 @@ function listFilm(page) {
     callApi('GET', `http://localhost:8000/movies/${page || 0}`, function (response) {
         let data = JSON.parse(response);
 
-        document.getElementById('movies-area').innerHTML = ""
+        document.getElementById('movies-area').innerHTML = "";
 
         for(let i = 0; i < data['Search'].length; i++) {
 

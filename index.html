@@ -23,10 +23,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="#" onclick="showPage(6)">À propos<span class="sr-only"></span></a>
-                    <a class="nav-item nav-link" href="#" onclick="showPage(2)">Films</a>
-                    <a class="nav-item nav-link" href="#" onclick="showPage(3)">Historique</a>
-                    <a class="nav-item nav-link" href="#" onclick="showPage(5)">Contact</a>
+                    <a class="nav-item nav-link" href="#apropos" onclick="showPage(6)">À propos<span class="sr-only"></span></a>
+                    <a class="nav-item nav-link" href="#films" onclick="showPage(2)">Films</a>
+                    <a class="nav-item nav-link" href="#historique" onclick="showPage(3)">Historique</a>
+                    <a class="nav-item nav-link" href="#contact" onclick="showPage(5)">Contact</a>
                 </div>
             </div>
             <form class="form-inline">
@@ -37,8 +37,8 @@
     </header>
 
 <!--PAGE-->
-<!--PAGE 1-->
-    <section id="home" class="page">
+<!--PAGE 1 : Home-->
+    <section id="page-1" class="page">
         <div id="bandeau-central">
             <div id="bandeau-presentation">
                 <div class="hook-line">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <p>au fil des jours !</p>
-                <p>Déjà xxx xxx membres</p>
+                <p>Déjà 284 056 membres</p>
             </div>
             <div id="button">
                 <button class="button-connexion" onclick="showPage(4)">CONNEXION</button>
@@ -57,7 +57,7 @@
             </div>
         </div>
     </section>
-<!--PAGE 2-->
+<!--PAGE 2 : Films-->
     <section id="page-2" class="page">
         <div id="movies-area">
         </div>
@@ -76,12 +76,12 @@
                 </nav>
             </footer>
     </section>
-<!--PAGE 3-->
+<!--PAGE 3 : Historique-->
     <section id="page-3" class="page">
-        <h2>Votes page</h2>
-        <p>This is the votes page</p>
+        <h2>Historique des votes</h2>
+        <p>Les films pour lesquels vous avez déjà votés :</p>
     </section>
-<!--PAGE 4-->
+<!--PAGE 4 : Connexion-->
     <section id="page-4" class="page">
         <h2>Connexion</h2>
         <p>Connectez-vous pour voter dès maintenant pour vos films préférés !</p>
@@ -102,12 +102,12 @@
             </form>
         </div>
     </section>
-<!--PAGE 5-->
+<!--PAGE 5 : Inscription-->
     <section id="page-5" class="page">
         <h2>Inscription</h2>
         <p>Rejoignez la communauté Blablamovie et votez pour vos films préférés !</p>
         <div>
-            <form action="http://localhost:8000/users/add" method="post" class="form-example">
+            <form id="inscriptionForm" action="http://localhost:8000/users/add" method="post" class="form-example">
                 <div class="form-example">
                     <label for="login-inscription">Veuillez entrer un login: </label>
                     <input type="text" name="login" id="login-inscription" required>
@@ -130,11 +130,56 @@
             </form>
         </div>
     </section>
-<!--PAGE 6-->
+<!--PAGE 6 : À propos-->
     <section id="page-6" class="page">
+        <h2>A propos</h2>
+        <p>Qui sommes-nous ?</p>
+    </section>
+    <!--PAGE 7 : Accueil Connecté-->
+    <section id="page-7" class="page">
         <h2>About us</h2>
         <p>This is the about us page</p>
     </section>
+    <!--PAGE 8 : Contact -->
+    <section id="page-8" class="page">
+        <h2>Contact</h2>
+        <p>Vous souhaitez nous écrire ?</p>
+        <div>
+            <form id="contact-form" action="http://localhost:8000/users/add" method="post" class="form-example">
+                <div class="form-example">
+                    <label for="contact-form">Veuillez renseigner votre nom: </label>
+                    <input type="text" name="contact-form" id="" required>
+                </div>
+                <div class="form-example">
+                    <label for="mail-comment">Veuillez entrer un email: </label>
+                    <input type="email" name="mail" id="mail-comment" required>
+                </div>
+                <div class="form-example">
+                    <label for="contact-comment">Veuillez écrire un commentaire : </label>
+                    <input type="text" name="contact" id="contact-comment" required>
+
+                </div>
+                <div class="form-example">
+                    <input type="submit" value="Envoyer">
+                </div>
+            </form>
+        </div>
+    </section>
+    <!--PAGE 9 : Validation inscription-->
+    <div id="popup-inscription">
+        <div>
+            <button class="popup-close" onclick="showPopupInscription(false)">close</button>
+            <h2>Inscription validée</h2>
+            <p>Félicitations, vous êtes des nôtres !</p>
+        </div>
+    </div>
+    <!--PAGE 10-->
+    <section id="page-10" class="page">
+        <h2>Erreur 404</h2>
+        <p>La page demandée n'existe pas.</p>
+    </section>
+
+
 <!--TODO: Ajouter les boutons réseaux sociaux Twitter, FB...-->
 <!--FOOTER-->
     <footer>
@@ -147,10 +192,10 @@
             </button>
             <div class="collapse navbar-collapse">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="#" onclick="showPage(6)">À propos<span class="sr-only"></span></a>
-                    <a class="nav-item nav-link" href="#" onclick="showPage(2)">Films</a>
-                    <a class="nav-item nav-link" href="#" onclick="showPage(3)">Historique</a>
-                    <a class="nav-item nav-link" href="#" onclick="showPage(5)">Contact</a>
+                    <a class="nav-item nav-link" href="#apropos" onclick="showPage(6)">À propos<span class="sr-only"></span></a>
+                    <a class="nav-item nav-link" href="#films" onclick="showPage(2)">Films</a>
+                    <a class="nav-item nav-link" href="#historique" onclick="showPage(3)">Historique</a>
+                    <a class="nav-item nav-link" href="#contact" onclick="showPage(5)">Contact</a>
                 </div>
             </div>
             <div class="logos-medias">
@@ -173,6 +218,7 @@
 <!--    <script src="js/main.js"></script>-->
 <!--    <script src="js/route.js"></script>-->
 <!--    <script src="js/router.js"></script>-->
+
     <script src="js/film.js"></script>
     <script src="js/app.js"></script>
     <script src="js/pagination.js"></script>

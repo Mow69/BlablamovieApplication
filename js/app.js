@@ -16,6 +16,7 @@ function init() {
                 showPage(6);
                 break;
             case 'films':
+                listFilm();
                 showPage(2);
                 break;
             case 'historique':
@@ -40,7 +41,7 @@ function init() {
     });
     userAdd();
     userConnect();
-    showPage(1)
+    showPage(1);
 
 
 }

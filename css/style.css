@@ -419,6 +419,10 @@ a.page-link:hover {
     border-radius: 7px;
 }
 
+.active {
+    color: #f7b436 !important;
+    font-weight: bold;
+}
 
 
 

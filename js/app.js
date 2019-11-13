@@ -96,8 +96,12 @@ function userConnect() {
                 mail: document.querySelector('#mail-connexion').value,
                 password: document.querySelector('#password-connexion').value
             }));
+
+            console.log('connexion ok')
+            showPage(1);
+
         } catch (e) {
-            throw (e);
+            throw new Error(e + alert("Une erreur de saisie dans le formulaire a été détectée et celui-ci n'a pas pu être envoyé."));
         }
     });
 }
@@ -124,13 +128,13 @@ function userAdd() {
                 password: document.querySelector('#password-inscription').value,
                 birth_date: document.querySelector('#birth_date-inscription').value
             }));
-            console.log('ok')
+            console.log('inscription ok')
             showPage(1);
 
             showPopupInscription(true)
 
         } catch (e) {
-            throw (e + alert("Une erreur de saisie dans le formulaire a été détectée et celui-ci n'a pas pu être envoyé."));
+            throw new Error(e + alert("Une erreur de saisie dans le formulaire a été détectée et celui-ci n'a pas pu être envoyé."));
         }
 
 

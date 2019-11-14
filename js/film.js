@@ -1,5 +1,7 @@
 function listFilm(page) {
-    document.getElementById('movies-area').innerHTML = '<img src="https://loading.io/spinners/reload/lg.ajax-syncing-loading-icon.gif" width="50"/>';
+    document.getElementById('movies-area').innerHTML = '<img src="/./images/loading.gif" width="70"/>';
+
+
     document.querySelector('.pagination').innerHTML = "";
     callApi('GET', `http://localhost:8000/movies/${page || 1}`, function (response) {
         let data = JSON.parse(response);
@@ -147,9 +149,11 @@ function paginationConstruct (current, i) {
 
         paginationArea.appendChild(li);
     } else {
-        let span = document.createElement('span');
-        span.innerHTML = "&nbsp;...&nbsp;";
-        paginationArea.appendChild(span);
+        let spanDot = document.createElement('span');
+        spanDot.innerHTML = "&nbsp;...&nbsp;";
+        spanDot.classList.add('spanDot');
+
+        paginationArea.appendChild(spanDot);
     }
 }
 
@@ -177,17 +181,47 @@ function movieConstruct(item) {
         mOrder.classList.add('m_order');
         mView.appendChild(mOrder);
 
+
+        let orderNb = document.createElement('p');
+        orderNb.innerHTML = '1';
+        orderNb.classList.add('orderNb');
+
+        mOrder.appendChild(orderNb);
+
+
     movieItem.appendChild(mView);
 
         /////// INFO
         let mInfo = document.createElement("div");
         mInfo.classList.add('m_info');
 
+
+
         let mVotes = document.createElement("div");
         mVotes.classList.add('m_votes');
         mInfo.appendChild(mVotes);
 
-        // let newContent = document.createTextNode(item['Title']);
+// TODO: Mettre les images de Like correctement
+
+
+        let like = document.createElement('img');
+        // let like = new Image();
+        like.src = '/../../images/like.jpg';
+        like.classList.add('like');
+
+        mVotes.appendChild(like);
+
+
+
+        let likeNb = document.createElement('p');
+        likeNb.innerHTML = '9999';
+        likeNb.classList.add('likeNb');
+
+        mVotes.appendChild(likeNb);
+
+
+
+    // let newContent = document.createTextNode(item['Title']);
         let movieTitle = document.createElement('p');
         movieTitle.innerHTML = item['Title'];
         movieTitle.classList.add('movie_title');

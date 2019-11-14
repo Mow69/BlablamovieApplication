@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:200,300,400,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>BlablaMovie</title>
 </head>
-<body class="container-fluid">
+<body>
 
 
 <!-- TODO: REFACTORISER CETTE PARTIE-->
 
-<!--HEADER-->
+<div class="header-container">
+    <!--HEADER-->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="logo">
@@ -36,29 +37,42 @@
         </nav>
     </header>
 
-<!--PAGE-->
-<!--PAGE 1 : Home-->
-    <section id="page-1" class="page">
-        <div id="bandeau-central">
-            <div id="bandeau-presentation">
-                <div class="hook-line">
-                    <span class="yellow-line"></span>
-                    <div class="hook-p">
-                        <p>Votez pour votre film préféré,</p>
-                        <p>et découvrez le classement</p>
+    <div class="header-content">
+        <div class="winner">
+            <h3>Last week, the winner was :</h3>
+            <h1>INTERSTELLAR</h1>
+            <p><span style="color: #f7b436">175 014</span> on 243 136 votes</p>
+        </div>
+        <section id="page-1" class="page page-1 ">
+            <div id="bandeau-central">
+                <div id="bandeau-presentation">
+                    <div class="hook-line">
+                        <div class="yellow-line"></div>
+                        <div class="hook-p">
+                            <h1>Votez pour votre film préféré,</h1>
+                            <h2>et découvrez le classement au fil des jours !</h2>
+                            <p>Déjà <span style="color: #f7b436">284 056 membres</span></p>
+                        </div>
                     </div>
                 </div>
-                <p>au fil des jours !</p>
-                <p>Déjà 284 056 membres</p>
+                <div id="button">
+                    <button class="button-connexion" onclick="showPage(4)">CONNEXION</button>
+                    <button class="button-inscription" onclick="showPage(5)">INSCRIPTION</button>
+                </div>
             </div>
-            <div id="button">
-                <button class="button-connexion" onclick="showPage(4)">CONNEXION</button>
-                <button class="button-inscription" onclick="showPage(5)">INSCRIPTION</button>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
+
+</div>
+
+<!--PAGE-->
+<!--PAGE 1 : Home-->
+
 <!--PAGE 2 : Films-->
-    <section id="page-2" class="page">
+    <section id="page-2" class="page page-content">
+        <div class="splash">
+            <img src="images/splash_2019-11-14/splash.png">
+        </div>
         <div id="movies-area">
         </div>
             <footer>
@@ -77,12 +91,12 @@
             </footer>
     </section>
 <!--PAGE 3 : Historique-->
-    <section id="page-3" class="page">
+    <section id="page-3" class="page page-content">
         <h2>Historique des votes</h2>
         <p>Les films pour lesquels vous avez déjà votés :</p>
     </section>
 <!--PAGE 4 : Connexion-->
-    <section id="page-4" class="page">
+    <section id="page-4" class="page page-content">
         <h2>Connexion</h2>
         <p>Connectez-vous pour voter dès maintenant pour vos films préférés !</p>
 <!--        TODO: REMPLIR LA PAGE D CONNEXION AVEC LE LIEN ET LA SPA DE CONNEXION LIEE A SA ROUTE DANS APP.js-->
@@ -115,7 +129,7 @@
         </div>
     </section>
 <!--PAGE 5 : Inscription-->
-    <section id="page-5" class="page">
+    <section id="page-5" class="page page-content">
         <h2>Inscription</h2>
         <p>Rejoignez la communauté Blablamovie et votez pour vos films préférés !</p>
         <div>
@@ -166,7 +180,7 @@
         </div>
     </section>
 <!--PAGE 6 : À propos-->
-    <section id="page-6" class="page">
+    <section id="page-6" class="page page-content">
         <h2>A propos</h2>
         <p>Qui sommes-nous ?</p>
     </section>
@@ -208,7 +222,7 @@
         </div>
     </div>
     <!--PAGE 10-->
-    <section id="page-10" class="page">
+    <section id="page-10" class="page page-content">
         <h2>Erreur 404</h2>
         <p>La page demandée n'existe pas.</p>
     </section>

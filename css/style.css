@@ -18,40 +18,71 @@
 
 /*}*/
 
+/** {*/
+/*    position: relative;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*}*/
+
+html, body {
+    min-width: 100%;
+    min-height: 100%;
+    background-color: #1b1b1d;
+    font-family: 'Fira Sans', sans-serif;
+}
 * {
-    position: relative;
-    top: 0;
-    left: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html {
-    width: 100%;
-    height: 100%;
+.header-container {
+    height: 640px;
+    background: top center url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg");
+    background-size: 100% auto;
+    position: relative;
+}
 
+.header-container::after {
+    display: block;
+    content: '';
+    height: 228px;
+    background-image: linear-gradient(to top, #1b1b1d 63%, rgba(0, 0, 0, 0));
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.header-content {
+    padding-left: 80px;
+    padding-top: 250px;
+    color: white;
+    position: relative;
+    z-index: 1;
 }
 
 body.container-fluid {
-    width: 100%;
-    padding-right: 0;
-    padding-left: 0;
-    margin-right: 0;
-    margin-left: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-size: auto 50%;
+    /*width: 100%;*/
+    /*padding-right: 0;*/
+    /*padding-left: 0;*/
+    /*margin-right: 0;*/
+    /*margin-left: 0;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*background-size: auto 50%;*/
 
-    background: -webkit-linear-gradient(transparent, black 30%) 30% 100%, url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg") no-repeat 0 50%; /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
-    background: -moz-linear-gradient(transparent, black 30%) 30% 100%, url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg") no-repeat 0% 50%; /* For Firefox (3.6 to 15) */
-    background: -o-linear-gradient(transparent, black 30%) 30% 100%, url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg") no-repeat 0% 50%; /* For old Opera (11.1 to 12.0) */
-    background: linear-gradient(transparent, black 30%) 30% 100%, url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg") no-repeat 0% 50%; /* Standard syntax; must be last */
+    /*background: -webkit-linear-gradient(transparent, black 30%) 30% 100%, url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg") no-repeat 0 50%; !* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 *!*/
+    /*background: -moz-linear-gradient(transparent, black 30%) 30% 100%, url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg") no-repeat 0% 50%; !* For Firefox (3.6 to 15) *!*/
+    /*background: -o-linear-gradient(transparent, black 30%) 30% 100%, url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg") no-repeat 0% 50%; !* For old Opera (11.1 to 12.0) *!*/
+    /*background: linear-gradient(transparent, black 30%) 30% 100%, url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg") no-repeat 0% 50%; !* Standard syntax; must be last *!*/
 
-    background-position: bottom;
-    background-position: top;
-    background-size: 100%;
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: 400;
-    height: 100%;
+    /*background-position: bottom;*/
+    /*background-position: top;*/
+    /*background-size: 100%;*/
+    /*font-family: 'Fira Sans', sans-serif;*/
+    /*font-weight: 400;*/
+    /*height: 100%;*/
     color: #ffffff;
 
 
@@ -107,9 +138,12 @@ header, .page, footer {
 
 
 
-    /*HEADER**************************/
-
-        /*NAVBAR*/
+/*HEADER**************************/
+.navbar {
+    padding: 0;
+    padding-top: 25px;
+}
+/*NAVBAR*/
 .navbar .navbar-nav .nav-link {
     color: #ffffff;
 }
@@ -118,47 +152,98 @@ header, .page, footer {
     filter: invert(100%);
 }
 
+.navbar-brand {
+    width: 163px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+}
+.navbar-brand img {
+    width: 100%;
+}
+
+
+/*LOGO BLABLAMOVIE*/
+.logo {
+    width: 163px;
+    height: 65px;
+    object-fit: contain;
+}
+
+
     /*CONTENT*/
 .page{
     display: none;
     flex-direction: column;
     align-items: stretch;
-    padding-top: 5em;
 }
 
-#page-1 {
-    display: flex;
+
+#bandeau-presentation {
+
 }
 
-/*Page 1**********************/
-#bandeau-central {
-    display: block;
-    padding-left: 15%;
-    padding-top: 10%;
+#bandeau-presentation h1 {
+    font-size: 26px;
+    line-height: 36px;
+    font-weight: 600;
 }
-
+#bandeau-presentation h2 {
+    font-size: 26px;
+    line-height: 36px;
+    font-weight: 200;
+}
 #bandeau-presentation p {
-     margin-left: 15px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 36px;
+    letter-spacing: normal;
 }
+
 .yellow-line {
-    display: block;
-    width: 3px;
-    height: 80%;
-    background: #f7b436;
-    position: absolute;
-    top: 0;
+    width: 4px;
+    height: 60px;
+    border-radius: 2px;
+    background-color: #f7b436;
+    margin-top: 8px;
+    margin-right: 15px;
 }
 
 .hook-line {
     display: flex;
+    position: relative;
+}
+.hook-p {
+    width: 356px;
 }
 
+
+/*TODO : ARRANGER LE SPASH*/
+.splash {
+    /*width: 523px;*/
+    /*height: 240px;*/
+    width: 50px;
+    object-fit: contain;
+    background-image: linear-gradient(247deg, #fcdb66 78%, #f7b436 20%);
+}
+
+
+
+
 /*Page 2**********************/
+
+.loading {
+    position: absolute;
+    z-index: 2;
+}
+
 #movies-area{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     height: 80%;
+    position: relative;
 }
 
 .movie_item{
@@ -194,13 +279,13 @@ header, .page, footer {
     width: 100%;
     height: auto;
     text-align: left;
-    margin-top: -110%;
     padding-left: 1rem ;
     color: #ffffff;
     position: absolute;
     z-index: 1;
-    text-shadow: 1px 1px 2px #ffffff;
+    text-shadow: 1px 1px 2px #000000;
     align-content: flex-end;
+    bottom: 0;
 
 }
 
@@ -216,17 +301,23 @@ header, .page, footer {
     width: 100%;
     height: 4em;
     padding-top: 1em;
+    padding-left: 1em;
     text-align: left;
 }
 
 .m_view {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
+.page-content {
+    margin-top: -150px;
+}
 .m_info {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .m_order {
@@ -239,8 +330,30 @@ header, .page, footer {
     z-index: 1;
     top: 20px;
     left: 0;
+
+    /*TODO: faire le count automatique du classement des films et l'incrémentation dynamique du nombre de votes par films et le nombre de votes total'*/
+/*    counter-reset: section;*/
 }
 
+.orderNb{
+    position: absolute;
+    right: 50%;
+    top: 15%;
+    width: 14px;
+    height: 37px;
+    font-size: 26px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #1b1b1d;
+
+
+    /*counter-increment: section;*/
+    /*content:  counter(section);*/
+
+}
 
 
 .m_votes {
@@ -253,10 +366,24 @@ header, .page, footer {
     right: 0;
     left: auto;
     top: -20px;
+
 }
 
 .m_votes:checked {
     background-color: #f7b436;
+}
+
+.like {
+    left: 10%;
+    top: 20%;
+    width: 40px;
+    position: absolute;
+}
+
+.likeNb {
+    right: 10%;
+    top: 20%;
+    position: absolute;
 }
 
     /*PAGINATION*/
@@ -271,6 +398,9 @@ header, .page, footer {
 
 }
 
+.spanDot {
+    color: #f2f2f2;
+}
 
 /*Page 5 : Inscription*******************/
     /*Page 9 : POPUP INSCRIPTION*/
@@ -285,6 +415,12 @@ header, .page, footer {
     right: 0;
     background-color: rgba(0, 0, 0, 0.4);
     color: black;
+}
+
+#popup-inscription::after {
+    content: '';
+    display: block;
+
 }
 
 #popup-inscription.popup-active {
@@ -387,12 +523,14 @@ a.page-link:hover {
     width: 100%;
 }
 
-/*LOGO BLABLAMOVIE*/
-.logo {
-    width: 163px;
-    height: 65px;
+
+
+#footlink>.logo>.navbar-brand img {
+    width: 126px;
+    height: 51px;
     object-fit: contain;
 }
+
 
 
 /*TODO: Rendre transparent le hover quand on clique sur la loupe de recherche .search-logo*/
@@ -435,7 +573,11 @@ a.page-link:hover {
 #flaticon {
     font-size: 9px;
     text-align: right;
+    color: #f2f2f2;
 }
+
+
+
 
 
 

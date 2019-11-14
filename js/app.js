@@ -70,7 +70,7 @@ function callApi(type, url, callback, data) {
 
             } else {
 
-                console.log('caca prout');
+                console.log('callApi return false');
 
             }
         }
@@ -87,7 +87,6 @@ function userConnect() {
 
     connexionForm.addEventListener('submit', (event) => {
         event.preventDefault();
-        console.log('coucou');
 
         if(verifFormConnexion(f)) {
             try {
@@ -119,8 +118,7 @@ function userAdd() {
 
     inscriptionForm.addEventListener('submit', (event) => {
         event.preventDefault()
-        console.log('coucou');
-        if(verifFormInscription(f)) {
+        // if(verifFormInscription(f)) {
             try {
                 callApi('POST', 'http://localhost:8000/users/add', function (response) {
                     console.log(response);
@@ -140,7 +138,7 @@ function userAdd() {
                 throw new Error(e + alert("Une erreur de saisie dans le formulaire a été détectée et celui-ci n'a pas pu être envoyé."));
             }
 
-        }
+        // }
 
 
     });

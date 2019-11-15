@@ -43,7 +43,10 @@ function init() {
     userConnect();
     showPage(1);
 
+    document.querySelector('#btn-login').addEventListener('click', userConnect);
 
+    // PENSER A SUPPRIER LA LIGNE SUIVANTE POUR CONSERVER LE TOKEN DANS LE LOCAL STORAGE (cad pour rester connecté au refresh page)
+    localStorage.removeItem('auth-token');
 }
 
 // Methode pour appeler BlablamovieAPi
@@ -66,7 +69,7 @@ function callApi(type, url, callback, data) {
         if(this.readyState === 4){
             if(this.status === 200) {
 
-                callback(this.responseText);
+                callback(JSON.parse(this.responseText));
 
             } else {
 
@@ -88,23 +91,25 @@ function userConnect() {
     connexionForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        if(verifFormConnexion(f)) {
+        //if(verifFormConnexion(f)) {
             try {
-                callApi('POST', 'http://localhost:8000/login', function (response) {
+                callApi('POST', 'http://localhost:8000/auth-tokens', function (response) {
                     console.log(response);
-                    movieArea.innerHTML = response;
+                    //movieArea.innerHTML = response;
+                    localStorage.setItem('auth-token', JSON.stringify(response));
+                    //JSON.parse(localStorage.getItem('auth-token'));
+                    console.log('connexion ok');
                 }, JSON.stringify({
-                    mail: document.querySelector('#mail-connexion').value,
+                    login: document.querySelector('#mail-connexion').value,
                     password: document.querySelector('#password-connexion').value
                 }));
 
-                console.log('connexion ok')
                 showPage(1);
 
             } catch (e) {
                 throw new Error(e + alert("Une erreur de saisie dans le formulaire a été détectée et celui-ci n'a pas pu être envoyé."));
             }
-        }
+        //}
     });
 }
 
@@ -120,7 +125,7 @@ function userAdd() {
         event.preventDefault()
         // if(verifFormInscription(f)) {
             try {
-                callApi('POST', 'http://localhost:8000/users/add', function (response) {
+                callApi('POST', 'http://localhost:8000/users', function (response) {
                     console.log(response);
                     movieArea.innerHTML = response;
                 }, JSON.stringify({

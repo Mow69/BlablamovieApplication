@@ -3,7 +3,7 @@ function listFilm(page) {
 
 
     document.querySelector('.pagination').innerHTML = "";
-    callApi('GET', `http://localhost:8000/movies/${page || 1}`, function (response) {
+    callApi('GET', `http://localhost:8000/movies?page=${page || 1}`, function (response) {
         let data = JSON.parse(response);
         //console.log(data['Search']);
 

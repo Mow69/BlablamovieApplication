@@ -40,10 +40,10 @@ html, body {
     height: 640px;
     background: top center url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg");
     background-size: 100% auto;
-    position: relative;
+    /*position: relative;*/
 }
 
-.header-container::after {
+/*.header-container::after {
     display: block;
     content: '';
     height: 228px;
@@ -51,7 +51,7 @@ html, body {
     position: absolute;
     width: 100%;
     bottom: 0;
-}
+}*/
 
 .header-content {
     padding-left: 80px;

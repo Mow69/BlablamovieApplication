@@ -40,11 +40,11 @@
     <div class="header-content">
 
 <!--        TODO: ATTENTION CETTE DIV CACHE LES AUTRES PAGES-->
-<!--        <div class="winner">-->
-<!--            <h3>Last week, the winner was :</h3>-->
-<!--            <h1>INTERSTELLAR</h1>-->
-<!--            <p><span style="color: #f7b436">175 014</span> on 243 136 votes</p>-->
-<!--        </div>-->
+        <div class="winner">
+            <h3>Last week, the winner was :</h3>
+            <h1>INTERSTELLAR</h1>
+            <p><span style="color: #f7b436">175 014</span> on 243 136 votes</p>
+        </div>
 
 
         <section id="page-1" class="page page-1 ">
@@ -73,8 +73,41 @@
 
 <!--PAGE 2 : Films-->
     <section id="page-2" class="page page-content">
-        <div class="splash">
-            <img src="images/splash_2019-11-14/splash.png">
+            <div class="splash">
+                <div class="timer-container">
+                    <div class="timer-num-container">
+                        <div class="jours">
+                            <div class="jours-num">
+                                <p class="dizaines">0</p>
+                                <p class="unites">6</p>
+                            </div>
+                            <div class="jours-unites">
+                                <p>jours</p>
+                            </div>
+                        </div>
+                        <div class="heures">
+                            <div class="heures-num">
+                                <p class="dizaines">2</p>
+                                <p class="unites">1</p>
+                            </div>
+                            <div class="heures-unites">
+                                <p>heures</p>
+                            </div>
+                        </div>
+                        <div class="minutes">
+                            <div class="minutes-num">
+                                <p class="dizaines">1</p>
+                                <p class="unites">9</p>
+                            </div>
+                            <div class="minutes-unites">
+                                <p>minutes</p>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                <img src="images/splash_2019-11-14/splash.png">
+            </div>
         </div>
         <div id="movies-area">
         </div>
@@ -86,12 +119,12 @@
             </footer>
     </section>
 <!--PAGE 3 : Historique-->
-    <section id="page-3" class="page page-content">
+    <section id="page-3" class="page">
         <h2>Historique des votes</h2>
         <p>Les films pour lesquels vous avez déjà votés :</p>
     </section>
 <!--PAGE 4 : Connexion-->
-    <section id="page-4" class="page page-content">
+    <section id="page-4" class="page">
         <h2>Connexion</h2>
         <p>Connectez-vous pour voter dès maintenant pour vos films préférés !</p>
 <!--        TODO: REMPLIR LA PAGE D CONNEXION AVEC LE LIEN ET LA SPA DE CONNEXION LIEE A SA ROUTE DANS APP.js-->
@@ -124,7 +157,7 @@
         </div>
     </section>
 <!--PAGE 5 : Inscription-->
-    <section id="page-5" class="page page-content">
+    <section id="page-5" class="page">
         <h2>Inscription</h2>
         <p>Rejoignez la communauté Blablamovie et votez pour vos films préférés !</p>
         <div>
@@ -175,7 +208,7 @@
         </div>
     </section>
 <!--PAGE 6 : À propos-->
-    <section id="page-6" class="page page-content">
+    <section id="page-6" class="page">
         <h2>A propos</h2>
         <p>Qui sommes-nous ?</p>
     </section>
@@ -191,8 +224,8 @@
         <div>
             <form id="contact-form" action="http://localhost:8000/users/add" method="post" class="form-example">
                 <div class="form-example">
-                    <label for="contact-form">Veuillez renseigner votre nom: </label>
-                    <input type="text" name="contact-form" id="" required>
+                    <label for="contact-nom">Veuillez renseigner votre nom: </label>
+                    <input type="text" name="contact-form" id="contact-nom" required>
                 </div>
                 <div class="form-example">
                     <label for="mail-comment">Veuillez entrer un email: </label>
@@ -216,8 +249,8 @@
             <p>Félicitations, vous êtes des nôtres !</p>
         </div>
     </div>
-    <!--PAGE 10-->
-    <section id="page-10" class="page page-content">
+    <!--PAGE 10 ERREUR 404-->
+    <section id="page-10" class="page">
         <h2>Erreur 404</h2>
         <p>La page demandée n'existe pas.</p>
     </section>

@@ -12,28 +12,42 @@ html, body {
 }
 
 .header-container {
-    height: 640px;
+    /*height: 640px;*/
+    height: 667px;
     background: top center url("../images/assets_SuperMovie_Homepage_simple_2019-10-18-2/img-interstellar.jpg");
     background-size: 100% auto;
     position: relative;
 }
 
+@media screen and (max-width: 1150px) {
+    .header-container {
+        background-size: auto 100%;
+    }
+}
+
 .header-container::after {
     display: block;
     content: '';
-    height: 228px;
+    height: 10%;
     background-image: linear-gradient(to top, #1b1b1d 63%, rgba(0, 0, 0, 0));
     position: absolute;
     width: 100%;
     bottom: 0;
+
 }
 
 .header-content {
     padding-left: 80px;
-    padding-top: 250px;
+    /*padding-top: 250px;*/
+    padding-top: 219px;
     color: white;
     position: relative;
     z-index: 1;
+}
+
+.winner {
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 body.container-fluid {
@@ -111,6 +125,9 @@ header, .page, footer {
     padding-right: 10%;
 }
 
+.page {
+    display: flex;
+}
 
 
 /*HEADER**************************/
@@ -249,24 +266,80 @@ header, .page, footer {
     /*background-image: linear-gradient(247deg, #fcdb66 78%, #f7b436 20%);*/
     display: flex;
     justify-content: flex-end;
-    padding-right: 12%;
+    padding-right: 10%;
+    margin-top: -21px;
     position: relative;
+    z-index: 3;
+    color: #1b1b1d;
+
 }
 
 .splach img {
-    margin-top: 15%;
+    /*margin-top: 15%;*/
+    /*position: absolute;*/
+    /*z-index: 3;*/
+    width: 523px;
+}
+
+    /*Timer*/
+.timer-container {
     position: absolute;
-    z-index: 3;
+    width: 523px;
+    align-self: center;
+    right: 5%;
+}
+
+.timer-num-container {
+    display: flex;
+    /*justify-content: space-around;*/
+    justify-content: space-between;
+    padding: 0 10% 0 10%;
+}
+
+.fond-timer {
+    width: 42.1px;
+    height: 54.7px;
+    border-radius: 3.4px;
+    background-color: rgba(27, 27, 29, 0.1);
+}
+
+.jours, .heures, .minutes {
+    display: flex;
+    flex-direction: column;
+}
+
+.jours p, .heures p, .minutes p {
+    /*width: 42px;*/
+    /*height: 45px;*/
+    /*line-height: 45px;*/
+    /*line-height: 100%;*/
+    text-align: center;
+    /*padding: 25px 10px 25px 10px;*/
+}
+
+.jours-num, .heures-num, .minutes-num {
+    display: flex;
+    justify-content: space-between;
 }
 
 
-
+/*TODO: Ajuster le compteur avec son bg */
+.jours-num p, .heures-num p, .minutes-num p {
+    width: 42px;
+    height: 45px;
+    line-height: 45px;
+    /*line-height: 100%;*/
+    background-color: rgba(27, 27, 29, 0.1);
+    border-radius: 3.4px;
+    /*padding: 25px 10px 25px 10px;*/
+}
 
 /*Page 2**********************/
 
 .loading {
     position: absolute;
     z-index: 2;
+    justify-content: center;
 }
 
 #movies-area{
@@ -276,6 +349,7 @@ header, .page, footer {
     height: 80%;
     position: relative;
     margin-top: -5em;
+    z-index: 4;
 }
 
 .movie_item{
@@ -285,6 +359,18 @@ header, .page, footer {
     flex-direction: column;
     flex-wrap: wrap;
 
+}
+
+@media screen and (max-width: 900px) {
+    .movie_item {
+        width: 45%!important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .movie_item {
+        width: 90%!important;
+    }
 }
 
 .movie_item:not(movie_year){
@@ -344,10 +430,12 @@ header, .page, footer {
 }
 
 .page-content {
-    margin-top: -150px;
-    position: absolute;
+    /*margin-top: -135px;*/
+    margin-top: -23px;
+    /*position: absolute;*/
     z-index: 3;
     color: #f2f2f2;
+
 }
 .m_info {
     display: flex;
@@ -410,15 +498,16 @@ header, .page, footer {
 
 .like {
     left: 10%;
-    top: -25%;
+    top: 20%;
     width: 40px;
     position: absolute;
 }
 
 .likeNb {
-    right: 10%;
+    right: 15%;
     top: 20%;
     position: absolute;
+    color: #1b1b1d;
 }
 
     /*PAGINATION*/
@@ -439,6 +528,7 @@ header, .page, footer {
 
 
 /*Page 3 : Historique*******************/
+
 /*Page 4 : Connexion*******************/
 
 /*Page 5 : Inscription*******************/
@@ -599,12 +689,16 @@ a.page-link:hover {
 
 
 
-/*Page 6 : Inscription*******************/
-
+/*Page 6 :  propos*******************/
+#page-6 {
+   display: flex;
+}
 /*Page 7 : Accueil connecté*******************/
 
 /*Page 8 : Contact*******************/
-
+#page-8 h2, #page-8 p, #page-8 label {
+    color: #f2f2f2;
+}
 
 /*TODO: Ajuster en largeur  la ligne de border top de la footbar*/
 /*FOOTBAR**********************/

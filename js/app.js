@@ -45,7 +45,7 @@ function init() {
 
     document.querySelector('#btn-login').addEventListener('click', userConnect);
 
-    // PENSER A SUPPRIER LA LIGNE SUIVANTE POUR CONSERVER LE TOKEN DANS LE LOCAL STORAGE (cad pour rester connecté au refresh page)
+    // PENSER A SUPPRIMER LA LIGNE SUIVANTE POUR CONSERVER LE TOKEN DANS LE LOCAL STORAGE (cad pour rester connecté au refresh page)
     localStorage.removeItem('auth-token');
 }
 
@@ -87,7 +87,6 @@ function callApi(type, url, callback, data) {
 ////////LOGIN PAGE
 
 function userConnect() {
-    let movieArea = document.getElementById('movies-area');
     let connexionForm = document.getElementById('connexionForm');
 
     connexionForm.addEventListener('submit', (event) => {
@@ -116,11 +115,43 @@ function userConnect() {
 }
 
 
+///////////// LOGOUT
+
+function logoutUser() {
+    let logoutButton = document.getElementById('btn-logout');
+
+    inscriptionForm.addEventListener('submit', (event) => {
+        event.preventDefault()
+        // if(verifFormInscription(f)) {
+        try {
+            callApi('POST', 'http://localhost:8000/users', function (response) {
+                console.log(response);
+            }, JSON.stringify({
+                login: document.querySelector('#login-inscription').value,
+                mail: document.querySelector('#mail-inscription').value,
+                password: document.querySelector('#password-inscription').value,
+                birth_date: document.querySelector('#birth_date-inscription').value
+            }));
+            console.log('inscription ok');
+            showPage(1);
+
+            showPopupInscription(true)
+
+        } catch (e) {
+            throw new Error(e + alert("Une erreur de saisie dans le formulaire a été détectée et celui-ci n'a pas pu être envoyé."));
+        }
+
+        // }
+
+
+    });
+}
+
+
 
 ////////ADD USER PAGE
 
 function userAdd() {
-    let movieArea = document.getElementById('movies-area');
     let inscriptionForm = document.getElementById('inscriptionForm');
 
     inscriptionForm.addEventListener('submit', (event) => {
@@ -129,7 +160,6 @@ function userAdd() {
             try {
                 callApi('POST', 'http://localhost:8000/users', function (response) {
                     console.log(response);
-                    movieArea.innerHTML = response;
                 }, JSON.stringify({
                     login: document.querySelector('#login-inscription').value,
                     mail: document.querySelector('#mail-inscription').value,

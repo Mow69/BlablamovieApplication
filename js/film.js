@@ -19,52 +19,6 @@ function listFilm(page) {
             movieConstruct(movie);
         });
 
-
-///////////////////////////https://openclassrooms.com/forum/sujet/creer-un-systeme-de-pagination-simple
-// if ($page != 1){
-//     $pageprece = ($_GET['id']-1);
-//
-//     if ($pageprece >= 1){
-//         echo'<a style="text-decoration:none;" href="?id=' .$pageprece. '">-' .$pageprece. '</a>';
-//     } else {}
-//
-//     $pagesuiv = ($_GET['id']+1);
-//     if ($pagesuiv <= 1){
-//         echo'<a style="text-decoration:none;" href="?id=' .$pageprece. '">-' .$pageprece. '</a>';
-//     } else {}
-// }
-
-/////////////////https://stackoverflow.com/questions/56530917/pagination-with-js
-
-        // let skip = null;
-        // if(pageCount > 10){
-        //     skip = <li><span>...</span></li>
-        // }
-        // for(let i = 1; i <= pageCount; i++) {
-        //
-        //     if((i < page + 3 && i > page - 3)){
-        //         result.push(
-        //         <li key={i}>some link</li>
-        //     );
-        //         continue;
-        //     } else if(skip){
-        //         result.push(skip);
-        //         skip = null;
-        //     }
-        // }
-
-
-
-
-
-
-
-        ///////////////////// TODO: faire la paginataion : corriger le pb de chargement des pages de films dans l'API, et ajouter dans le Front la pagination avec les pages suivantes et précédentes.
-
-// for pages of page () {
-//     if()
-// }
-
 ///////////////////////////////////
         const nbPages = Math.ceil(parseInt(data['totalResults']) / data['elementsPerPage']);
         const currentPage = page || 1;
@@ -232,15 +186,6 @@ function movieConstruct(item) {
 
     movieArea.appendChild(movieItem);
 
-
-
-
-
-    // TODO : préciser le lien pour les titres des films
-    // let movieInfos = document.createElement('a');
-    // movieInfos.setAttribute('href', '');
-    // movieInfos.classList.add('btn');
-    // movieItem.appendChild(movieInfos);
 
 }
 

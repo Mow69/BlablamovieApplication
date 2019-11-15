@@ -69,7 +69,9 @@ function callApi(type, url, callback, data) {
         if(this.readyState === 4){
             if(this.status === 200) {
 
-                callback(JSON.parse(this.responseText));
+                // callback(JSON.parse(this.responseText));
+                callback(this.responseText);
+
 
             } else {
 

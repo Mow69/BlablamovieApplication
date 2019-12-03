@@ -124,87 +124,93 @@
         <p>Les films pour lesquels vous avez déjà votés :</p>
     </section>
 <!--PAGE 4 : Connexion-->
-    <section id="page-4" class="page">
-        <h2>Connexion</h2>
-        <p>Connectez-vous pour voter dès maintenant pour vos films préférés !</p>
-<!--        TODO: REMPLIR LA PAGE D CONNEXION AVEC LE LIEN ET LA SPA DE CONNEXION LIEE A SA ROUTE DANS APP.js-->
-        <div>
-            <form novalidate class="form-example" id="connexionForm">
-                <div class="form-example">
-                    <label for="mail-connexion">Veuillez entrer votre email: </label>
-                    <input type="email" name="mail"  id="mail-connexion" required>
-<!--                    <input type="email" name="mail" onblur="verifEmail(this)" id="mail-connexion" required>-->
-                    <span class="missEmail" aria-live="polite"></span>
-<!--                    <span class="error" aria-live="polite"></span>-->
-                    <small id="emailHelpInline-co" class="text-muted">
-                        L'adresse email doit être au format mail classique (exemple@exemple.com) et unique.
-                    </small>
-                </div>
-                <div class="form-example">
-                    <label for="password-connexion">Veuillez entrer votre mot de passe: </label>
-                    <input type="password" name="password" id="password-connexion" required>
-<!--                    <input type="password" onblur="verifPassword(this)" name="password" id="password-connexion" required>-->
-                    <span class="missPassword" aria-live="polite"></span>
-<!--                    <span class="error" aria-live="polite"></span>-->
-                    <small id="passwordHelpInline-co" class="text-muted">
-                        Mot de passe : répond aux critères RGPD, soit au minimum 12 caractères, parmi les caractères spéciaux, les minuscules, les majuscules et les chiffres.
-                    </small>
-                </div>
-                <div class="form-example">
-                    <button id="btn_login" class="bouton_envoi">Connexion</button>
-                </div>
-            </form>
+    <section id="page-4" class="page popup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="showPopup(false)">close</button>
+            <h2>Connexion</h2>
+            <p>Connectez-vous pour voter dès maintenant pour vos films préférés !</p>
+            <!--        TODO: REMPLIR LA PAGE D CONNEXION AVEC LE LIEN ET LA SPA DE CONNEXION LIEE A SA ROUTE DANS APP.js-->
+            <div>
+                <form novalidate class="form-example" id="connexionForm">
+                    <div class="form-example">
+                        <label for="mail-connexion">Veuillez entrer votre email: </label>
+                        <input type="email" name="mail"  id="mail-connexion" required>
+                        <!--                    <input type="email" name="mail" onblur="verifEmail(this)" id="mail-connexion" required>-->
+                        <span class="missEmail" aria-live="polite"></span>
+                        <!--                    <span class="error" aria-live="polite"></span>-->
+                        <small id="emailHelpInline-co" class="text-muted">
+                            L'adresse email doit être au format mail classique (exemple@exemple.com) et unique.
+                        </small>
+                    </div>
+                    <div class="form-example">
+                        <label for="password-connexion">Veuillez entrer votre mot de passe: </label>
+                        <input type="password" name="password" id="password-connexion" required>
+                        <!--                    <input type="password" onblur="verifPassword(this)" name="password" id="password-connexion" required>-->
+                        <span class="missPassword" aria-live="polite"></span>
+                        <!--                    <span class="error" aria-live="polite"></span>-->
+                        <small id="passwordHelpInline-co" class="text-muted">
+                            Mot de passe : répond aux critères RGPD, soit au minimum 12 caractères, parmi les caractères spéciaux, les minuscules, les majuscules et les chiffres.
+                        </small>
+                    </div>
+                    <div class="form-example">
+                        <button id="btn_login" class="bouton_envoi">Connexion</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 <!--PAGE 5 : Inscription-->
-    <section id="page-5" class="page">
-        <h2>Inscription</h2>
-        <p>Rejoignez la communauté Blablamovie et votez pour vos films préférés !</p>
-        <div>
-            <form novalidate id="inscriptionForm" class="form-example">
-                <div class="form-example">
-                    <label for="login-inscription">Veuillez entrer un login: </label>
-                    <input type="text" name="login" maxlength="18" id="login-inscription" required>
-<!--                    <input type="text" name="login" onblur="verifLogin(this)" maxlength="18" id="login-inscription" required>-->
-                    <span class="missLogin" aria-live="polite"></span>
-<!--                    <span class="error" aria-live="polite"></span>-->
-                    <small id="inscriptionHelpInline" class="text-muted">
-                        Pseudo : doit faire entre 3 et 18 caractères alphanumériques
-                    </small>
-                </div>
-                <div class="form-example">
-                    <label for="mail-inscription">Veuillez entrer un email: </label>
-                    <input type="email" name="mail" id="mail-inscription" required>
-<!--                    <input type="email" name="mail" onblur="verifEmail(this)" id="mail-inscription" required>-->
-                    <span class="missEmail" aria-live="polite"></span>
-<!--                    <span class="error" aria-live="polite"></span>-->
-                    <small id="emailHelpInline" class="text-muted">
-                        L'adresse email doit être au format mail classique (exemple@exemple.com) et unique.
-                    </small>
-                </div>
-                <div class="form-example">
-                    <label for="password-inscription">Veuillez entrer un mot de passe: </label>
-                    <input type="password" name="password" id="password-inscription" required>
-<!--                    <input type="password" name="password" onblur="verifPassword(this)" id="password-inscription" required>-->
-                    <span class="missPassword" aria-live="polite"></span>
-<!--                    <span class="error" aria-live="polite"></span>-->
-                    <small id="passwordHelpInline" class="text-muted">
-                        Le mot de passe doit répondre aux critères RGPD (<a href="https://www.cnil.fr/fr/authentification-par-mot-de-passe-les-mesures-de-securite-elementaires">les mesures de sécurité élémentaires RGPD selon le site la CNIL</a>), soit au minimum 12 caractères, parmi les caractères spéciaux, les minuscules, les majuscules et les chiffres.
-                    </small>
-                </div>
-                <div class="form-example">
-                    <label for="birth_date-inscription">Veuillez entrer une date de naissance: </label>
-                    <input type="date" name="birth_date" id="birth_date-inscription" required>
-                    <span class="missBirth_date" aria-live="polite"></span>
-<!--                    <span class="error" aria-live="polite"></span>-->
-                    <small id="birth-dateHelpInline" class="text-muted">
-                        La date de naissance doit être postérieure à 2004 : il faut avoir plus de 15 ans pour s'inscrire.
-                    </small>
-                </div>
-                <div class="form-example">
-                    <button id="btn_inscription" class="bouton_envoi">Inscription</button>
-                </div>
-            </form>
+    <section id="page-5" class="page popup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="showPopup(false)">close</button>
+            <h2>Inscription</h2>
+            <p>Rejoignez la communauté Blablamovie et votez pour vos films préférés !</p>
+            <div>
+                <form novalidate id="inscriptionForm" class="form-example">
+                    <div class="form-example">
+                        <label for="login-inscription">Veuillez entrer un login: </label>
+                        <input type="text" name="login" maxlength="18" id="login-inscription" required>
+                        <!--                    <input type="text" name="login" onblur="verifLogin(this)" maxlength="18" id="login-inscription" required>-->
+                        <span class="missLogin" aria-live="polite"></span>
+                        <!--                    <span class="error" aria-live="polite"></span>-->
+                        <small id="inscriptionHelpInline" class="text-muted">
+                            Pseudo : doit faire entre 3 et 18 caractères alphanumériques
+                        </small>
+                    </div>
+                    <div class="form-example">
+                        <label for="mail-inscription">Veuillez entrer un email: </label>
+                        <input type="email" name="mail" id="mail-inscription" required>
+                        <!--                    <input type="email" name="mail" onblur="verifEmail(this)" id="mail-inscription" required>-->
+                        <span class="missEmail" aria-live="polite"></span>
+                        <!--                    <span class="error" aria-live="polite"></span>-->
+                        <small id="emailHelpInline" class="text-muted">
+                            L'adresse email doit être au format mail classique (exemple@exemple.com) et unique.
+                        </small>
+                    </div>
+                    <div class="form-example">
+                        <label for="password-inscription">Veuillez entrer un mot de passe: </label>
+                        <input type="password" name="password" id="password-inscription" required>
+                        <!--                    <input type="password" name="password" onblur="verifPassword(this)" id="password-inscription" required>-->
+                        <span class="missPassword" aria-live="polite"></span>
+                        <!--                    <span class="error" aria-live="polite"></span>-->
+                        <small id="passwordHelpInline" class="text-muted">
+                            Le mot de passe doit répondre aux critères RGPD (<a href="https://www.cnil.fr/fr/authentification-par-mot-de-passe-les-mesures-de-securite-elementaires">les mesures de sécurité élémentaires RGPD selon le site la CNIL</a>), soit au minimum 12 caractères, parmi les caractères spéciaux, les minuscules, les majuscules et les chiffres.
+                        </small>
+                    </div>
+                    <div class="form-example">
+                        <label for="birth_date-inscription">Veuillez entrer une date de naissance: </label>
+                        <input type="date" name="birth_date" id="birth_date-inscription" required>
+                        <span class="missBirth_date" aria-live="polite"></span>
+                        <!--                    <span class="error" aria-live="polite"></span>-->
+                        <small id="birth-dateHelpInline" class="text-muted">
+                            La date de naissance doit être postérieure à 2004 : il faut avoir plus de 15 ans pour s'inscrire.
+                        </small>
+                    </div>
+                    <div class="form-example">
+                        <button id="btn_inscription" class="bouton_envoi">Inscription</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 <!--PAGE 6 : À propos-->
@@ -242,7 +248,7 @@
         </div>
     </section>
     <!--PAGE 9 : Validation inscription-->
-    <div id="popup-inscription">
+    <div id="popup-inscription" class="popup">
         <div>
             <button class="popup-close" onclick="showPopupInscription(false)">close</button>
             <h2>Inscription validée</h2>
@@ -254,6 +260,15 @@
         <h2>Erreur 404</h2>
         <p>La page demandée n'existe pas.</p>
     </section>
+
+    <!--PAGE 11 : Validation inscription-->
+    <div id="popup-connexion" class="popup">
+        <div>
+            <button class="popup-close" onclick="showPopupConnexion(false)">close</button>
+            <h2>Connecté(e)</h2>
+            <p>Heureux de vous revoir </p>
+        </div>
+    </div>
 
 
 <!--TODO: Ajouter les boutons réseaux sociaux Twitter, FB...-->

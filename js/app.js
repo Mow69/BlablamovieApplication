@@ -45,6 +45,9 @@ function init() {
 
     document.querySelector('#btn-login').addEventListener('click', userConnect);
 
+    document.querySelector('#btn-inscription').addEventListener('click', userAdd);
+
+
     // PENSER A SUPPRIMER LA LIGNE SUIVANTE POUR CONSERVER LE TOKEN DANS LE LOCAL STORAGE (cad pour rester connecté au refresh page)
     localStorage.removeItem('auth-token');
 }
@@ -135,7 +138,8 @@ function logoutUser() {
             console.log('inscription ok');
             showPage(1);
 
-            showPopupInscription(true)
+            showPopupInscription(true);
+            showPopupConnexion(true)
 
         } catch (e) {
             throw new Error(e + alert("Une erreur de saisie dans le formulaire a été détectée et celui-ci n'a pas pu être envoyé."));
@@ -183,6 +187,30 @@ function userAdd() {
 
 function showPopupInscription(show) {
     $popup = document.querySelector('#popup-inscription')
+
+    if (show) {
+        if (!$popup.classList.contains('popup-active')) {
+            $popup.classList.add('popup-active')
+        }
+    } else {
+        $popup.classList.remove('popup-active')
+    }
+}
+
+function showPopupConnexion(show) {
+    $popup = document.querySelector('#popup-connexion')
+
+    if (show) {
+        if (!$popup.classList.contains('popup-active')) {
+            $popup.classList.add('popup-active')
+        }
+    } else {
+        $popup.classList.remove('popup-active')
+    }
+}
+
+function showPopup(show) {
+    $popup = document.querySelector('.popup')
 
     if (show) {
         if (!$popup.classList.contains('popup-active')) {

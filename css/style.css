@@ -510,6 +510,8 @@ header, .page, footer {
     color: #1b1b1d;
 }
 
+
+
     /*PAGINATION*/
 
 .page-item:first-child .page-link {
@@ -530,37 +532,71 @@ header, .page, footer {
 /*Page 3 : Historique*******************/
 
 /*Page 4 : Connexion*******************/
+#page-4 {
+    color: white;
+}
+
+/*#popup-connexion {*/
+/*    position: absolute;*/
+/*    display: none;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    top: 0;*/
+/*    bottom: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    background-color: rgba(0, 0, 0, 0.4);*/
+/*    color: black;*/
+/*}*/
+
+/*#popup-connexion::after {*/
+/*    content: '';*/
+/*    display: block;*/
+
+/*}*/
+
+/*#popup-connexion.popup-active {*/
+/*    display: flex;*/
+/*}*/
+
+/*#popup-connexion > div {*/
+/*    background-color: white;*/
+/*    padding: 25px;*/
+/*    border-radius: 7px;*/
+/*}*/
+
+
 
 /*Page 5 : Inscription*******************/
-    /*Page 9 : POPUP INSCRIPTION*/
-#popup-inscription {
-    position: absolute;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    color: black;
-}
+/*    !*Page 9 : POPUP INSCRIPTION*!*/
+/*#popup-inscription, .popup {*/
+/*    position: absolute;*/
+/*    display: none;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    top: 0;*/
+/*    bottom: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    background-color: rgba(0, 0, 0, 0.4);*/
+/*    color: black;*/
+/*}*/
 
-#popup-inscription::after {
-    content: '';
-    display: block;
+/*#popup-inscription::after, .popup:after {*/
+/*    content: '';*/
+/*    display: block;*/
 
-}
+/*}*/
 
-#popup-inscription.popup-active {
-    display: flex;
-}
+/*#popup-inscription.popup-active, .popup.popup-active {*/
+/*    display: flex;*/
+/*}*/
 
-#popup-inscription > div {
-    background-color: white;
-    padding: 25px;
-    border-radius: 7px;
-}
+/*#popup-inscription > div, .popup > div {*/
+/*    background-color: white;*/
+/*    padding: 25px;*/
+/*    border-radius: 7px;*/
+/*}*/
 
 /*FOOTER**********************/
 footer {
@@ -732,6 +768,108 @@ a.page-link:hover {
 
 
 
+/*****************POPUP*/
+.popup {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: black;
+}
+
+.popup:after {
+    content: '';
+    display: block;
+
+}
+
+.popup.popup-active {
+    display: flex;
+}
+
+.popup > div {
+    background-color: white;
+    padding: 25px;
+    border-radius: 7px;
+}
+
+/*****************POPUP-CONNECTE(E)*/
+.popup {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: black;
+}
+
+.popup:after {
+    content: '';
+    display: block;
+
+}
+
+.popup.popup-active {
+    display: flex;
+}
+
+.popup > div {
+    background-color: white;
+    padding: 25px;
+    border-radius: 7px;
+    z-index: 1;
+    color: black;
+
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-close {
+    background-color: red;
+    width: intrinsic;
+    align-self: flex-end;
+}
+
+
+#btn_login {
+    width: 130px;
+    height: 36px;
+    border-radius: 20px;
+    background-color: #f7b436;
+
+}
+
+#btn_inscription {
+    width: 87px;
+    height: 20px;
+    font-family: FiraSans;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #1b1b1d;
+}
+
+
+
+
+/*************/
 
 .active {
     color: #f7b436 !important;

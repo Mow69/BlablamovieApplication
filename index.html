@@ -45,8 +45,6 @@
             <h1>INTERSTELLAR</h1>
             <p><span style="color: #f7b436">175 014</span> on 243 136 votes</p>
         </div>
-
-
         <section id="page-1" class="page page-1 ">
             <div id="bandeau-central">
                 <div id="bandeau-presentation">
@@ -60,8 +58,8 @@
                     </div>
                 </div>
                 <div id="button">
-                    <button class="button-connexion" onclick="showPage(4)">CONNEXION</button>
-                    <button class="button-inscription" onclick="showPage(5)">INSCRIPTION</button>
+                    <button class="button-connexion" id="btn-conn" onclick="showPage(4)">CONNEXION</button>
+                    <button class="button-inscription" id="btn-inscript" onclick="showPage(5)">INSCRIPTION</button>
                 </div>
             </div>
         </section>
@@ -126,46 +124,64 @@
 <!--PAGE 4 : Connexion-->
     <section id="page-4" class="page popup">
         <div class="popup-content">
-            <button class="popup-close" onclick="showPopup(false)">close</button>
-            <h2>Connexion</h2>
-            <p>Connectez-vous pour voter dès maintenant pour vos films préférés !</p>
-            <!--        TODO: REMPLIR LA PAGE D CONNEXION AVEC LE LIEN ET LA SPA DE CONNEXION LIEE A SA ROUTE DANS APP.js-->
-            <div>
-                <form novalidate class="form-example" id="connexionForm">
-                    <div class="form-example">
-                        <label for="mail-connexion">Veuillez entrer votre email: </label>
-                        <input type="email" name="mail"  id="mail-connexion" required>
-                        <!--                    <input type="email" name="mail" onblur="verifEmail(this)" id="mail-connexion" required>-->
-                        <span class="missEmail" aria-live="polite"></span>
-                        <!--                    <span class="error" aria-live="polite"></span>-->
-                        <small id="emailHelpInline-co" class="text-muted">
-                            L'adresse email doit être au format mail classique (exemple@exemple.com) et unique.
-                        </small>
-                    </div>
-                    <div class="form-example">
-                        <label for="password-connexion">Veuillez entrer votre mot de passe: </label>
-                        <input type="password" name="password" id="password-connexion" required>
-                        <!--                    <input type="password" onblur="verifPassword(this)" name="password" id="password-connexion" required>-->
-                        <span class="missPassword" aria-live="polite"></span>
-                        <!--                    <span class="error" aria-live="polite"></span>-->
-                        <small id="passwordHelpInline-co" class="text-muted">
-                            Mot de passe : répond aux critères RGPD, soit au minimum 12 caractères, parmi les caractères spéciaux, les minuscules, les majuscules et les chiffres.
-                        </small>
-                    </div>
-                    <div class="form-example">
-                        <button id="btn_login" class="bouton_envoi">Connexion</button>
-                    </div>
-                </form>
+            <span class="topline"></span>
+            <div class="close-content">
+                <button class="popup-close" onclick="showPopup(false, 4)">
+                    <img src="images/closed_2019-12-04/closed.png" srcset="images/closed_2019-12-04/closed@2x.png 2x, images/closed_2019-12-04/closed@3x.png 3x" class="closed">
+                </button>
             </div>
+            <div class="form-title">
+                <h2>Connexion</h2>
+                <p>Connectez-vous pour voter dès maintenant pour vos films préférés !</p>
+            </div>
+            <div class="connexion-form">
+                    <form novalidate class="form-example" id="connexionForm">
+                        <div class="form-example">
+                            <label for="mail-connexion">Veuillez entrer votre email: </label>
+                            <input type="email" name="mail"  id="mail-connexion" required>
+                            <!--                    <input type="email" name="mail" onblur="verifEmail(this)" id="mail-connexion" required>-->
+                            <span class="missEmail" aria-live="polite"></span>
+                            <!--                    <span class="error" aria-live="polite"></span>-->
+                            <small id="emailHelpInline-co" class="text-muted">
+                                L'adresse email doit être au format mail classique (exemple@exemple.com) et unique.
+                            </small>
+                        </div>
+                        <div class="form-example">
+                            <label for="password-connexion">Veuillez entrer votre mot de passe: </label>
+                            <input type="password" name="password" id="password-connexion" required>
+                            <!--                    <input type="password" onblur="verifPassword(this)" name="password" id="password-connexion" required>-->
+                            <span class="missPassword" aria-live="polite"></span>
+                            <!--                    <span class="error" aria-live="polite"></span>-->
+                            <small id="passwordHelpInline-co" class="text-muted">
+                                Mot de passe : répond aux critères RGPD, soit au minimum 12 caractères, parmi les caractères spéciaux, les minuscules, les majuscules et les chiffres.
+                            </small>
+                        </div>
+                        <div class="form-example btn_form">
+                            <button class="bouton_envoi btn_login">Connexion</button>
+                            <button class="bouton_envoi btn_inscription" onclick="showPage(5)">Inscription</button>
+                        </div>
+                    </form>
+            </div>
+
+
+            <!--        TODO: REMPLIR LA PAGE D CONNEXION AVEC LE LIEN ET LA SPA DE CONNEXION LIEE A SA ROUTE DANS APP.js-->
+
         </div>
     </section>
 <!--PAGE 5 : Inscription-->
     <section id="page-5" class="page popup">
         <div class="popup-content">
-            <button class="popup-close" onclick="showPopup(false)">close</button>
-            <h2>Inscription</h2>
-            <p>Rejoignez la communauté Blablamovie et votez pour vos films préférés !</p>
-            <div>
+            <span class="topline"></span>
+            <div class="close-content">
+                <button class="popup-close" onclick="showPopup(false, 5)">
+                    <img src="images/closed_2019-12-04/closed.png" srcset="images/closed_2019-12-04/closed@2x.png 2x, images/closed_2019-12-04/closed@3x.png 3x" class="closed">
+                </button>
+            </div>
+            <div class="form-title">
+                <h2>Inscription</h2>
+                <p>Rejoignez la communauté Blablamovie et votez pour vos films préférés !</p>
+            </div>
+            <div class="connexion-form">
                 <form novalidate id="inscriptionForm" class="form-example">
                     <div class="form-example">
                         <label for="login-inscription">Veuillez entrer un login: </label>
@@ -206,8 +222,10 @@
                             La date de naissance doit être postérieure à 2004 : il faut avoir plus de 15 ans pour s'inscrire.
                         </small>
                     </div>
-                    <div class="form-example">
-                        <button id="btn_inscription" class="bouton_envoi">Inscription</button>
+                    <div class="form-example btn_form">
+                        <button class="bouton_envoi btn_inscription2">Inscription</button>
+                        <button class="bouton_envoi btn_login2" onclick="showPage(4)">Connexion</button>
+
                     </div>
                 </form>
             </div>
@@ -250,7 +268,9 @@
     <!--PAGE 9 : Validation inscription-->
     <div id="popup-inscription" class="popup">
         <div>
-            <button class="popup-close" onclick="showPopupInscription(false)">close</button>
+            <button class="popup-close" onclick="showPopupInscription(false)">
+                <img src="images/closed_2019-12-04/closed.png" srcset="images/closed_2019-12-04/closed@2x.png 2x, images/closed_2019-12-04/closed@3x.png 3x" class="closed">
+            </button>
             <h2>Inscription validée</h2>
             <p>Félicitations, vous êtes des nôtres !</p>
         </div>
@@ -261,10 +281,12 @@
         <p>La page demandée n'existe pas.</p>
     </section>
 
-    <!--PAGE 11 : Validation inscription-->
+    <!--PAGE 11 : Validation Connexion-->
     <div id="popup-connexion" class="popup">
         <div>
-            <button class="popup-close" onclick="showPopupConnexion(false)">close</button>
+            <button class="popup-close" onclick="showPopupConnexion(false)">
+                <img src="images/closed_2019-12-04/closed.png" srcset="images/closed_2019-12-04/closed@2x.png 2x, images/closed_2019-12-04/closed@3x.png 3x" class="closed">
+            </button>
             <h2>Connecté(e)</h2>
             <p>Heureux de vous revoir </p>
         </div>

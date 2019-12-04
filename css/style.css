@@ -5,6 +5,11 @@ html, body {
     background-color: #1b1b1d;
     font-family: 'Fira Sans', sans-serif;
 }
+
+body {
+    height: 100%;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -530,73 +535,61 @@ header, .page, footer {
 
 
 /*Page 3 : Historique*******************/
+#page-3 {
+    color: white;
+}
 
 /*Page 4 : Connexion*******************/
 #page-4 {
     color: white;
 }
 
-/*#popup-connexion {*/
-/*    position: absolute;*/
-/*    display: none;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    top: 0;*/
-/*    bottom: 0;*/
-/*    left: 0;*/
-/*    right: 0;*/
-/*    background-color: rgba(0, 0, 0, 0.4);*/
-/*    color: black;*/
-/*}*/
-
-/*#popup-connexion::after {*/
-/*    content: '';*/
-/*    display: block;*/
-
-/*}*/
-
-/*#popup-connexion.popup-active {*/
-/*    display: flex;*/
-/*}*/
-
-/*#popup-connexion > div {*/
-/*    background-color: white;*/
-/*    padding: 25px;*/
-/*    border-radius: 7px;*/
-/*}*/
-
 
 
 /*Page 5 : Inscription*******************/
-/*    !*Page 9 : POPUP INSCRIPTION*!*/
-/*#popup-inscription, .popup {*/
-/*    position: absolute;*/
-/*    display: none;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    top: 0;*/
-/*    bottom: 0;*/
-/*    left: 0;*/
-/*    right: 0;*/
-/*    background-color: rgba(0, 0, 0, 0.4);*/
-/*    color: black;*/
-/*}*/
 
-/*#popup-inscription::after, .popup:after {*/
-/*    content: '';*/
-/*    display: block;*/
+#page-5 {
+    color: white;
+}
 
-/*}*/
+/*Page 6 : A propos*******************/
+#page-6 {
+    color: white;
+}
 
-/*#popup-inscription.popup-active, .popup.popup-active {*/
-/*    display: flex;*/
-/*}*/
+/*Page 7 : Accueil Connecté*******************/
+#page-7, #popup-connexion {
+    color: white;
+}
+#popup-connexion {
+    z-index: 1;
+}
 
-/*#popup-inscription > div, .popup > div {*/
-/*    background-color: white;*/
-/*    padding: 25px;*/
-/*    border-radius: 7px;*/
-/*}*/
+/*Page 8 : Contact*******************/
+#page-8 {
+    color: white;
+}
+
+/*Page 9 : Validation inscription*******************/
+#page-9, #popup-inscription {
+    color: white;
+}
+#popup-inscription {
+z-index: 1;
+}
+
+/*Page 10 : ERREUR 404*******************/
+#page-10 {
+    color: #f7b436;
+}
+
+
+
+
+/*Page 11 : Validation inscription*******************/
+
+
+
 
 /*FOOTER**********************/
 footer {
@@ -657,7 +650,7 @@ a.page-link:hover {
 
 
 /*CONNEXION INSCRIPTION BUTTONS*/
-.button {
+.button, #button-logout {
     width: 75px;
     height: 20px;
     font-size: 14px;
@@ -668,7 +661,7 @@ a.page-link:hover {
     letter-spacing: normal;
 }
 
-.button-connexion {
+.button-connexion, .btn_login {
     color: #f7b436;
     width: 120px;
     height: 36px;
@@ -677,7 +670,7 @@ a.page-link:hover {
     background-image: linear-gradient(to top, #1b1b1d 63%, rgba(0, 0, 0, 100))
 }
 
-.button-connexion:hover {
+.button-connexion:hover, .btn_login:hover {
     color: #000000;
     background-image: none;
     background-color: #f2f2f2;
@@ -687,7 +680,7 @@ a.page-link:hover {
 }
 
 
-.button-connexion:active {
+.button-connexion:active, .btn_login:active {
     color: #000000;
     background-image: none;
     background-color: #f2f2f2;
@@ -696,7 +689,7 @@ a.page-link:hover {
     transform: translateY(4px);
 }
 
-.button-inscription {
+.button-inscription, .btn_inscription {
     color: #ffffff;
     width: 130px;
     height: 36px;
@@ -705,7 +698,7 @@ a.page-link:hover {
     border: transparent;
 }
 
-.button-inscription:hover {
+.button-inscription:hover, .btn_inscription:hover {
     color: #000000;
     background-color: #f2f2f2;
     border: transparent;
@@ -714,7 +707,7 @@ a.page-link:hover {
 }
 
 
-.button-inscription:active {
+.button-inscription:active, .btn_inscription:active {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
     color: #000000;
@@ -769,34 +762,8 @@ a.page-link:hover {
 
 
 /*****************POPUP*/
-.popup {
-    position: absolute;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    color: black;
-}
 
-.popup:after {
-    content: '';
-    display: block;
 
-}
-
-.popup.popup-active {
-    display: flex;
-}
-
-.popup > div {
-    background-color: white;
-    padding: 25px;
-    border-radius: 7px;
-}
 
 /*****************POPUP-CONNECTE(E)*/
 .popup {
@@ -810,6 +777,7 @@ a.page-link:hover {
     right: 0;
     background-color: rgba(0, 0, 0, 0.4);
     color: black;
+    height: 100%;
 }
 
 .popup:after {
@@ -822,51 +790,167 @@ a.page-link:hover {
     display: flex;
 }
 
-.popup > div {
-    background-color: white;
-    padding: 25px;
-    border-radius: 7px;
-    z-index: 1;
-    color: black;
+/*.popup > div {*/
 
-}
+/*}*/
+
 
 .popup-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /*align-items: center;*/
+    background-color: white;
+    border-radius: 7px;
+    z-index: 1;
+    color: black;
+    width: 35%;
+    height: 75%;
+    /*justify-content: space-between;*/
+    overflow: auto;
+    padding: 0px 25px 25px;
+    position: relative;
 }
+
+
+.topline {
+    height: 3px;
+    width: 40%;
+    display: block;
+    background: #f7b436;
+    /*margin: auto;*/
+    margin: 0 0 0 25%;
+    position: absolute;
+}
+
 
 .popup-close {
-    background-color: red;
-    width: intrinsic;
-    align-self: flex-end;
+    border: none;
+    background: none;
+    object-fit: contain;
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.popup-close:hover {
+    transform: translateY(4px);
+}
+
+.popup-close:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 
-#btn_login {
+
+
+
+.close-content {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.form-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.connexion-form {
+    border-bottom-width: 0px;
+    border-bottom-style: solid;
+    margin-bottom: 40px;
+    margin-top: -15px;
+    border-top-width: 0px;
+    border-top-style: solid;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    height: 100%;
+}
+
+.btn_form {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 20px;
+}
+
+#connexionForm {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.btn_login, .btn_inscription2 {
+    color: #ffffff;
     width: 130px;
     height: 36px;
     border-radius: 20px;
     background-color: #f7b436;
-
+    border: transparent;
+    background-image: none;
 }
 
-#btn_inscription {
-    width: 87px;
-    height: 20px;
-    font-family: FiraSans;
-    font-size: 14px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
+.btn_login:hover, .btn_inscription2:hover {
+    color: #000000;
+    background-color: #f2f2f2;
+    border: transparent;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    background-image: none;
+}
+
+
+.btn_login:active, .btn_inscription2:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    color: #000000;
+    background-color: #f2f2f2;
+    border: transparent;
+    background-image: none;
+}
+
+
+.btn_inscription, .btn_login2 {
     color: #1b1b1d;
+    background: none;
+    width: 120px;
+    height: 36px;
+    border: transparent;
+    border-radius: 20px;
+}
+
+.btn_inscription:hover, .btn_login2:hover {
+    color: #1b1b1d;
+    background-image: none;
+    background-color: #f2f2f2;
+    border: transparent;
+    transform: translateY(4px);
+    box-shadow: 0 5px #666;
+    border-radius: 20px;
 }
 
 
+.btn_inscription:active, .btn_login2:active {
+    color: #1b1b1d;
+    background-image: none;
+    background-color: #f2f2f2;
+    border: transparent;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    border-radius: 20px;
+}
+
+input {
+ border-top: none;
+ border-right: none;
+ border-bottom: #b9bfce 1px solid;
+ border-left: none;
+}
 
 
 /*************/

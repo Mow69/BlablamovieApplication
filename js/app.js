@@ -43,9 +43,9 @@ function init() {
     userConnect();
     showPage(1);
 
-    document.querySelector('#btn-login').addEventListener('click', userConnect);
+    // document.querySelector('#btn-login').addEventListener('click', userConnect);
 
-    document.querySelector('#btn-inscription').addEventListener('click', userAdd);
+    // document.querySelector('#btn-inscription').addEventListener('click', userAdd);
 
 
     // PENSER A SUPPRIMER LA LIGNE SUIVANTE POUR CONSERVER LE TOKEN DANS LE LOCAL STORAGE (cad pour rester connecté au refresh page)
@@ -107,15 +107,56 @@ function userConnect() {
                     login: document.querySelector('#mail-connexion').value,
                     password: document.querySelector('#password-connexion').value
                 }));
+                showPopupConnexion();
 
                 showPage(1);
 
+//////Remplace les boutons connexion et inscription par logout /// et a corriger le
+//                 button.getElementById('btn-conn').style.display = 'none';
+//                 button.getElementById('btn-inscript').style.display = 'none';
+// qui est undefined
+                let button = document.getElementById('button');
+
+                let logoutButton = document.createElement('button');
+                logoutButton.setAttribute("id", "button-logout");
+
+                button.getElementById('btn-conn').style.display = 'none';
+                button.getElementById('btn-inscript').style.display = 'none';
+
+                button.appendChild(logoutButton);
+
+
             } catch (e) {
-                throw new Error(e + alert("Une erreur de saisie dans le formulaire a été détectée et celui-ci n'a pas pu être envoyé."));
+                alert("Une erreur de saisie dans le formulaire a été détectée et celui-ci n'a pas pu être envoyé.");
+                throw new Error(e);
             }
         //}
     });
 }
+
+////TEMPLATE LOGGED PAGE
+// TODO: Faire apparaître un template différent quand on est connecté avec le #button
+//  qui remplace les boutons connexion et inscription par déconnexion
+function connectedUser() {
+    // let button = document.getElementById('button');
+    // button.addEventListener('submit', (event) => {
+    //     event.preventDefault();
+    //
+    //     showPage(1);
+    // });
+// if() {
+//
+// }
+//     let button = document.getElementById('button');
+//
+//     let logoutButton = document.createElement('button');
+//
+//     button.style.display = 'none'
+//     button.appendChild(logoutButton);
+
+}
+
+
 
 
 ///////////// LOGOUT
@@ -135,11 +176,10 @@ function logoutUser() {
                 password: document.querySelector('#password-inscription').value,
                 birth_date: document.querySelector('#birth_date-inscription').value
             }));
-            console.log('inscription ok');
+            console.log('logout ok');
             showPage(1);
 
-            showPopupInscription(true);
-            showPopupConnexion(true)
+            showPopupConnexion(true);
 
         } catch (e) {
             throw new Error(e + alert("Une erreur de saisie dans le formulaire a été détectée et celui-ci n'a pas pu être envoyé."));
@@ -157,7 +197,7 @@ function logoutUser() {
 
 function userAdd() {
     let inscriptionForm = document.getElementById('inscriptionForm');
-
+// TODO: FAIRE MARCHER L'INSCRIPTION AVEC LES CONTRAINTES AUSSI'
     inscriptionForm.addEventListener('submit', (event) => {
         event.preventDefault()
         // if(verifFormInscription(f)) {
@@ -209,17 +249,26 @@ function showPopupConnexion(show) {
     }
 }
 
-function showPopup(show) {
-    $popup = document.querySelector('.popup')
+function showPopup(show, pageNum) {
+    let pageToDisplay = document.getElementById(`page-${pageNum}`);
 
+//     $popup = document.querySelector('.popup')
+// console.log($popup);
     if (show) {
-        if (!$popup.classList.contains('popup-active')) {
-            $popup.classList.add('popup-active')
-        }
+            // $popup.classList.add('popup-active')
+            pageToDisplay.style.display = 'flex';
+
     } else {
-        $popup.classList.remove('popup-active')
+        // $popup.classList.remove('popup-active')
+        pageToDisplay.style.display = 'none';
+        showPage(1);
+
     }
 }
+
+
+
+
 
 
 // TODO: Ajouter des indicateurs : pour signifié que le formulaire d'inscription et de connexion a été envoyé.
